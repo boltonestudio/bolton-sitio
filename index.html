@@ -333,7 +333,7 @@ const IMGS = {"altea":[["img/altea/altea-05.jpg",1.777],["img/altea/altea-01.jpg
 P.forEach(p=>{if(IMGS[p.id])p.images=IMGS[p.id]});
 /* Proyectos sin imágenes todavía (Ferran Blau, Rega, Food'n Veggies, Zehra, Norbe): quedan ocultos hasta tener material. */
 for(let i=P.length-1;i>=0;i--) if(!P[i].images.length) P.splice(i,1);
-/* Reconocimientos del estudio (solo los de Bolton). */
+/* Reconocimientos a proyectos de Bolton. */
 const AWARDS = [
   {fest:'Tatakua', prize:'Shortlist', cat:'Diseño de identidad corporativa', project:'zeppelin', year:''}
 ];
@@ -394,7 +394,7 @@ const secClients=()=>`<section class="band" style="border-top:1px solid var(--li
     <p class="big-p" data-rv style="max-width:none;font-size:clamp(30px,3.72vw,72px)">${CLIENTS.map(esc).join(', ')}.</p>
   </section>`;
 const secAwards=()=>`<section class="band" style="border-top:1px solid var(--line)">
-    <div class="sec-h" data-rv><h2 class="disp">Reconocimientos del estudio</h2><span class="lab">Otorgados a Bolton</span></div>
+    <div class="sec-h" data-rv><h2 class="disp">Reconocimientos</h2><span class="lab">Proyectos destacados en festivales</span></div>
     <div class="rows">${AWARDS.map(a=>{const pj=P.find(p=>p.id===a.project);return `<div data-rv><span class="disp">${esc(a.fest)}</span><span class="lab">${esc(a.prize)} · ${esc(a.cat)}${pj?` · <a href="#${pj.id}" data-cursor-link>${esc(pj.name)} ↗</a>`:''}</span><span class="lab">${esc(a.year)}</span></div>`}).join('')}</div>
   </section>`;
 
