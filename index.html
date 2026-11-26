@@ -770,7 +770,7 @@ const cur=$('#cur'), cTxt=$('#curTxt'), lp=$('#lp');
 if(matchMedia('(hover:hover)').matches){
   let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,lx=mx,ly=my;
   addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;if(!document.getElementById('pre'))cur.classList.add('on');});
-  const tick=()=>{cx+=(mx-cx)*.22;cy+=(my-cy)*.22;lx+=(mx-lx)*.12;ly+=(my-ly)*.12;
+  const tick=()=>{cx+=(mx-cx)*.38;cy+=(my-cy)*.38;lx+=(mx-lx)*.12;ly+=(my-ly)*.12;
     cur.style.translate=`${cx}px ${cy}px`; lp.style.left=lx+'px'; lp.style.top=ly+'px'; requestAnimationFrame(tick);};
   tick();
   /* el cursor parpadea como los ojos del símbolo: el iris se cierra hasta una línea y se vuelve a abrir */
@@ -793,16 +793,17 @@ if(matchMedia('(hover:hover)').matches){
    Las imágenes aparecen donde pasa el cursor, quedan un instante y se apagan de a poco; quedan detrás del título.
    Sale una cada 110 px de recorrido: rápido deja muchas, lento pocas, quieto ninguna. */
 if(matchMedia('(hover:hover)').matches&&!RM){
-  const TR=['la-g/la-g-07','zeppelin/zeppelin-13','carmelo/carmelo-10','ubana/ubana-10','alvarium/alvarium-07','la-g/la-g-08','zeppelin/zeppelin-19','trendy-paws/trendy-paws-02','ubana/ubana-17','la-g/la-g-11','zeppelin/zeppelin-10','carmelo/carmelo-03','alvarium/alvarium-03','la-g/la-g-24','zeppelin/zeppelin-18','altea/altea-05','la-g/la-g-12','ubana/ubana-12'].map(x=>'img/'+x+'.jpg');
+  const TR=['la-g/la-g-07','zeppelin/zeppelin-13','carmelo/carmelo-10','ubana/ubana-10','alvarium/alvarium-07','la-g/la-g-08','zeppelin/zeppelin-19','trendy-paws/trendy-paws-02','ubana/ubana-17','la-g/la-g-11','zeppelin/zeppelin-10','carmelo/carmelo-03','alvarium/alvarium-03','la-g/la-g-24','zeppelin/zeppelin-18','altea/altea-05','la-g/la-g-12','ubana/ubana-12'].map(x=>'img/estela/'+x.replace('/','-')+'.jpg');
   const GAP=110, HOLD=450, FADE=500;
   let loaded=false,ti=0,zi=1,lx=null,ly=null;
-  const preload=()=>{if(loaded)return;loaded=true;TR.forEach(u=>{const i=new Image();i.src=u;});};
+  const cache=[];const preload=()=>{if(loaded)return;loaded=true;TR.forEach(u=>{const i=new Image();i.decoding='async';i.src=u;i.decode&&i.decode().catch(()=>{});cache.push(i);});};
+  addEventListener('load',()=>(window.requestIdleCallback||setTimeout)(preload,1200));
   document.addEventListener('pointermove',e=>{
     const hero=e.target.closest&&e.target.closest('.hero.home'); if(!hero){lx=null;return;}
     const box=hero.querySelector('.trail'); if(!box) return; preload();
     const r=hero.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
     if(lx!==null&&Math.hypot(x-lx,y-ly)<GAP) return; lx=x;ly=y;
-    const im=new Image(); im.src=TR[ti++%TR.length]; im.alt=''; im.style.zIndex=++zi;
+    const im=new Image(); im.decoding='async'; im.src=TR[ti++%TR.length]; im.alt=''; im.style.zIndex=++zi;
     const place=()=>{const w=im.offsetWidth,h=im.offsetHeight;im.style.left=(x-w/2).toFixed(1)+'px';im.style.top=(y-h/2).toFixed(1)+'px';};
     im.style.transform='scale(.75)';
     box.appendChild(im); if(im.complete) place(); else im.onload=place;
