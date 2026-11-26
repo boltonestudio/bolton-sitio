@@ -106,7 +106,7 @@ main{min-height:100vh}
 .hero .sub{margin:clamp(48px,9vh,100px) 0 0;display:grid;gap:30px}
 .hero .sub p{margin:0;max-width:72ch}
 .hero.home{min-height:100svh;display:flex;flex-direction:column;padding-bottom:30px}
-.trail{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2}.trail img{position:absolute;left:0;top:0;width:clamp(150px,14vw,280px);aspect-ratio:4/5;object-fit:cover;will-change:transform,opacity;opacity:0}
+.trail{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2}.trail img{position:absolute;left:0;top:0;width:clamp(150px,14vw,280px);aspect-ratio:4/5;object-fit:cover;will-change:transform,opacity}
 .hero.home{position:relative}.hero.home>*:not(.trail){position:relative;z-index:1}
 .hero.home .sub{margin-top:auto;grid-template-columns:minmax(0,1fr) auto;align-items:end;padding-top:48px}
 .stx{display:flex;align-items:center;gap:22px;white-space:nowrap;min-height:44px}
@@ -789,37 +789,22 @@ if(matchMedia('(hover:hover)').matches){
     cur.classList.toggle('link',!big&&!!lk);
   });
 } else document.body.classList.remove('has-cur');
-/* estela de trabajos: solo en el inicio de la portada. Cada imagen nace donde estuvo el cursor y viaja suave hasta donde está ahora;
-   por distancia: mover rápido deja más imágenes, lento deja menos. Inspirado en el portfolio de Diego en Framer. */
-if(matchMedia('(hover:hover)').matches&&ANIM){
+/* estela de trabajos: solo en el inicio de la portada, al mover el mouse aparecen imágenes de proyectos que se desvanecen */
+if(matchMedia('(hover:hover)').matches&&!RM){
   const TR=['la-g/la-g-07','zeppelin/zeppelin-13','carmelo/carmelo-10','ubana/ubana-10','alvarium/alvarium-07','la-g/la-g-08','zeppelin/zeppelin-19','trendy-paws/trendy-paws-02','ubana/ubana-17','la-g/la-g-11','zeppelin/zeppelin-10','carmelo/carmelo-03','alvarium/alvarium-03','la-g/la-g-24','zeppelin/zeppelin-18','altea/altea-05','la-g/la-g-12','ubana/ubana-12'].map(x=>'img/'+x+'.jpg');
-  const GAP=70;                       /* px de recorrido entre una imagen y la siguiente */
-  let loaded=false,ti=0,zi=1,hero=null,box=null,mx=0,my=0,cx=0,cy=0,last=null,inside=false;
+  let loaded=false,ti=0,lx=null,ly=null;
   const preload=()=>{if(loaded)return;loaded=true;TR.forEach(u=>{const i=new Image();i.src=u;});};
   document.addEventListener('pointermove',e=>{
-    const h=e.target.closest&&e.target.closest('.hero.home');
-    if(!h){inside=false;last=null;return;}
-    if(h!==hero){hero=h;box=h.querySelector('.trail');}
-    const r=hero.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top;
-    if(!inside){inside=true;cx=mx;cy=my;if(!last)last={x:mx,y:my};}
-    preload();
-  });
-  const spawn=()=>{
-    if(!box)return;
+    const hero=e.target.closest&&e.target.closest('.hero.home'); if(!hero) {lx=null;return;}
+    const box=hero.querySelector('.trail'); if(!box) return; preload();
+    const r=hero.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+    if(lx!==null&&Math.hypot(x-lx,y-ly)<90) return; lx=x;ly=y;
     const im=document.createElement('img'); im.src=TR[ti++%TR.length]; im.alt=''; box.appendChild(im);
-    const w=im.offsetWidth||220, h=w*1.25;
-    im.style.zIndex=++zi;
-    G.killTweensOf(im);
-    G.timeline({onComplete:()=>im.remove()})
-      .set(im,{x:cx-w/2,y:cy-h/2,scale:.9,opacity:1,transformOrigin:'50% 50%'})
-      .to(im,{x:mx-w/2,y:my-h/2,scale:1,duration:.9,ease:'expo.out'},0)
-      .to(im,{opacity:0,scale:.6,duration:.9,ease:'power3.in'},.45);
-    while(box.children.length>14) box.firstChild.remove();
-  };
-  G.ticker.add(()=>{
-    if(!inside||!box)return;
-    cx+=(mx-cx)*.12; cy+=(my-cy)*.12;          /* posición suavizada que persigue al cursor */
-    if(Math.hypot(mx-last.x,my-last.y)>GAP){last={x:mx,y:my};spawn();}
+    const w=im.offsetWidth||200, h=w*1.25;
+    im.style.transform=`translate(${x-w/2}px,${y-h/2}px) scale(.6)`; im.style.opacity='0';
+    requestAnimationFrame(()=>{im.style.transition='transform .45s cubic-bezier(.16,1,.3,1),opacity .25s';im.style.transform=`translate(${x-w/2}px,${y-h/2}px) scale(1)`;im.style.opacity='1';});
+    setTimeout(()=>{im.style.transition='transform .35s cubic-bezier(.7,0,.84,0),opacity .35s';im.style.transform=`translate(${x-w/2}px,${y-h/2+24}px) scale(.85)`;im.style.opacity='0';setTimeout(()=>im.remove(),380);},320);
+    while(box.children.length>12) box.firstChild.remove();
   });
 }
 
