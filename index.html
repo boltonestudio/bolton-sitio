@@ -249,7 +249,7 @@ main{min-height:100vh}
 <h2>Servicios</h2><p>Branding e identidad corporativa, diseño de logotipos, naming y estrategia de marca, packaging, rebranding y dirección de arte.</p>
 <h2>Cómo trabajamos</h2><p>01 Observar. 02 Cuestionar. 03 Conceptualizar. 04 Materializar.</p>
 <h2><a href="/trabajos/">Trabajos</a></h2><ul><li><a href="/trabajos/la-g/">La G</a> — Identidad visual (2026)</li><li><a href="/trabajos/zeppelin/">Zeppelin, Conservatorio de Música</a> — Rebranding (2025). Shortlist en los Premios Tatakua, Diseño de identidad corporativa.</li><li><a href="/trabajos/alvarium/">Alvarium</a> — Identidad visual (2021)</li><li><a href="/trabajos/ubana/">Ubana Grill House</a> — Identidad visual (2021)</li><li><a href="/trabajos/carmelo/">Carmelo</a> — Identidad visual (2020)</li><li><a href="/trabajos/trendy-paws/">Trendy Paws</a> — Identidad visual (2021)</li><li><a href="/trabajos/altea/">Altea, constructora</a> — Rebranding (2019)</li></ul>
-<h2><a href="/criterio/">Criterio</a></h2><ul><li><a href="/criterio/zeppelin-hacer-visible-lo-que-se-escucha/">Hacer visible lo que se escucha</a> — notas de Diego Centurión sobre la identidad de Zeppelin</li></ul>
+<h2><a href="/notas/">Notas</a></h2><ul><li><a href="/notas/zeppelin-hacer-visible-lo-que-se-escucha/">Hacer visible lo que se escucha</a> — notas de Diego Centurión sobre la identidad de Zeppelin</li></ul>
 <h2>Contacto</h2><p>boltonbranding@gmail.com · WhatsApp +595 972 444 227 · Instagram @boltonestudio · Behance boltonstudio</p>
 </div></noscript>
 
@@ -265,6 +265,7 @@ main{min-height:100vh}
     <a href="#inicio" data-r="inicio">Inicio</a>
     <a href="#trabajos" data-r="trabajos">Trabajos</a>
     <a href="#estudio" data-r="estudio">Estudio</a>
+    <a href="/notas/" data-r="notas">Notas</a>
     <a href="#contacto" data-r="contacto">Contacto</a>
   </nav>
   <div class="hd-r">
@@ -279,6 +280,7 @@ main{min-height:100vh}
     <a class="disp" href="#inicio"><span class="line"><span>Inicio</span></span></a>
     <a class="disp" href="#trabajos"><span class="line"><span>Trabajos</span></span></a>
     <a class="disp" href="#estudio"><span class="line"><span>Estudio</span></span></a>
+    <a class="disp" href="/notas/"><span class="line"><span>Notas</span></span></a>
     <a class="disp" href="#contacto"><span class="line"><span>Contacto</span></span></a>
   </nav>
   <a class="pill lab" href="#contacto">Hablemos</a>
@@ -309,7 +311,7 @@ const CATS = ['Identidad visual','Rebranding','Dirección de arte','Packaging'];
 let P = [
   {id:'la-g', name:'La G', client:'La G', cats:['Identidad visual'], year:'2026', award:'',
    desc:'Cada desafío es distinto. Entonces, ¿por qué responder siempre igual? Esa pregunta define cómo trabaja La G y fue el punto de partida de su identidad. Una sola forma no alcanzaba: la marca necesitaba la misma libertad que ellos para cambiar y adaptarse a cada contexto sin perder su carácter. El resultado es un sistema construido desde una sola letra: un signo estable y un ecosistema de G que se ordenan, se estiran, se rompen y estallan, y que en cada pieza encuentran una nueva forma de mostrarse.', images:[]},
-  {id:'zeppelin', name:'Zeppelin', client:'Conservatorio de Música', cats:['Rebranding'], year:'2025', award:'Shortlist Tatakua · Diseño de identidad corporativa',
+  {id:'zeppelin', name:'Zeppelin', client:'Conservatorio de Música', cats:['Rebranding'], year:'2025', award:'Shortlist Tatakua · Diseño de identidad corporativa', read:{t:'Hacer visible lo que se escucha', u:'/notas/zeppelin-hacer-visible-lo-que-se-escucha/'},
    desc:'Zeppelin es un conservatorio de música líder y referente en el mercado paraguayo, con años de trayectoria. Por primera vez en décadas surgía la necesidad de reconstruir su imagen, buscando una identidad que refleje su esencia musical y su compromiso con el sonido. Por eso creamos una identidad que nace de la música y fluye mediante sus ondas sonoras a través de todo un universo visual que respira el alma de la marca.', images:[]},
   {id:'alvarium', name:'Alvarium', client:'Estudio de consultores creativos', cats:['Identidad visual'], year:'2021', award:'',
    desc:'Alvarium (colmena, en latín) es un estudio de consultores creativos que, como una colmena, empuja el trabajo con sinergia. Así como las abejas usan su visión distinta a su favor, creamos una identidad basada en la visión cromática ultravioleta de la abeja: fotografías de panales y flores estimuladas con una luz especial para ver un mundo totalmente distinto al que conocemos. El resultado: una marca que demuestra que una visión diferente da resultados únicos y genuinos.', images:[]},
@@ -507,7 +509,7 @@ function vProyecto(p){
   </section>
   <section class="band split" style="padding-top:clamp(32px,5vw,72px)">
     <p class="lab mute" data-rv>El proyecto</p>
-    <div>${p.desc?`<p data-rv style="max-width:64ch;margin:0">${esc(p.desc)}</p>${p.credits?`<p class="lab mute" data-rv style="margin-top:28px;max-width:62ch">${esc(p.credits)}</p>`:''}`:`<p class="big-p mute" data-rv>Descripción del proyecto</p><p data-rv style="margin-top:16px">${pend('texto del caso')}</p>`}</div>
+    <div>${p.desc?`<p data-rv style="max-width:64ch;margin:0">${esc(p.desc)}</p>${p.credits?`<p class="lab mute" data-rv style="margin-top:28px;max-width:62ch">${esc(p.credits)}</p>`:''}${p.read?`<p class="lab" data-rv style="margin-top:28px"><span class="mute">Notas</span><br><a class="ul" href="${p.read.u}" data-cursor-link>Leer: ${esc(p.read.t)} →</a></p>`:''}`:`<p class="big-p mute" data-rv>Descripción del proyecto</p><p data-rv style="margin-top:16px">${pend('texto del caso')}</p>`}</div>
   </section>
   <section class="gal">${gallery(p)}</section>
   <div style="height:clamp(56px,8vw,120px)"></div>
@@ -520,7 +522,7 @@ function footer(route){
   const soc=(k,v)=>`<li>${v?`<a href="${esc(v)}">${k}</a>`:`${k} ${pend()}`}</li>`;
   $('#ft').innerHTML=`<div class="ft-top lab"><span><b></b>Navegar</span><span>${n?'Siguiente':''}</span></div>${n?`<a class="ft-next" href="#${n[0]}" data-cursor="→"><span class="disp">${n[1]}.</span></a>`:''}
   <div class="ft-grid lab">
-    <div><h4 class="mute">Páginas</h4><ul><li><a href="#inicio">Inicio</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#estudio">Estudio</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+    <div><h4 class="mute">Páginas</h4><ul><li><a href="#inicio">Inicio</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#estudio">Estudio</a></li><li><a href="/notas/">Notas</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
     <div><h4 class="mute">Sobre Bolton</h4><p style="margin:0">Bolton® — Independent design practice. Estudio de diseño y creatividad, Paraguay.</p></div>
     <div><h4 class="mute">Email</h4>${CONTACT.email?`<a href="mailto:${esc(CONTACT.email)}">${esc(CONTACT.email)}</a>`:pend()}</div>
     <div><h4 class="mute">Redes</h4><ul>${soc('Instagram',CONTACT.instagram)}${soc('WhatsApp',CONTACT.whatsappLink)}${soc('Behance',CONTACT.behance)}</ul></div>
