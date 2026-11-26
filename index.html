@@ -768,7 +768,7 @@ if(matchMedia('(hover:hover)').matches){
   let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,lx=mx,ly=my;
   addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;if(!document.getElementById('pre'))cur.classList.add('on');});
   const tick=()=>{cx+=(mx-cx)*.22;cy+=(my-cy)*.22;lx+=(mx-lx)*.12;ly+=(my-ly)*.12;
-    cur.style.transform=`translate(${cx}px,${cy}px)`; lp.style.left=lx+'px'; lp.style.top=ly+'px'; requestAnimationFrame(tick);};
+    cur.style.translate=`${cx}px ${cy}px`; lp.style.left=lx+'px'; lp.style.top=ly+'px'; requestAnimationFrame(tick);};
   tick();
   /* el cursor parpadea como los ojos del símbolo: el iris se cierra hasta una línea y se vuelve a abrir */
   if(!RM){
