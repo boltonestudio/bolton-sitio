@@ -774,9 +774,9 @@ if(matchMedia('(hover:hover)').matches){
   if(!RM){
     const io=p=>p*p*p, oc=p=>1-(1-p)**3;
     const tw=(fr,to,d,ease)=>new Promise(res=>{const t0=performance.now();const f=now=>{const q=Math.min(1,(now-t0)/d);cur.style.scale='1 '+(fr+(to-fr)*ease(q)).toFixed(3);if(q<1)requestAnimationFrame(f);else res();};requestAnimationFrame(f);});
-    const blinkC=async(d=200)=>{if(cur.classList.contains('big')||cur.classList.contains('link'))return;await tw(1,.06,d*.42,io);await tw(.06,1,d*.58,oc);cur.style.scale='';};
-    const loopC=async()=>{await blinkC(); if(Math.random()<.3){await new Promise(r=>setTimeout(r,90));await blinkC(180);} setTimeout(loopC,2200+Math.random()*3600);};
-    setTimeout(loopC,4000);
+    const blinkC=async(d=300)=>{if(cur.classList.contains('big')||cur.classList.contains('link'))return;await tw(1,.06,d*.42,io);await tw(.06,1,d*.58,oc);cur.style.scale='';};
+    const loopC=async()=>{await blinkC(); if(Math.random()<.3){await new Promise(r=>setTimeout(r,90));await blinkC(260);} setTimeout(loopC,1500+Math.random()*2500);};
+    setTimeout(loopC,2500);
   }
   document.addEventListener('pointerover',e=>{
     const cd=e.target.closest('.card'); if(cd&&!cd._h){cd._h=1;const sp=$('.meta>span',cd);if(sp){orig(sp);shuffle(sp,'Descubrir');cd.addEventListener('pointerleave',()=>{cd._h=0;shuffle(sp);},{once:true});}}
