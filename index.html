@@ -803,7 +803,7 @@ if(matchMedia('(hover:hover)').matches&&!RM){
     const w=im.offsetWidth||200, h=w*1.25;
     im.style.transform=`translate(${x-w/2}px,${y-h/2}px) scale(.6)`; im.style.opacity='0';
     requestAnimationFrame(()=>{im.style.transition='transform .45s cubic-bezier(.16,1,.3,1),opacity .25s';im.style.transform=`translate(${x-w/2}px,${y-h/2}px) scale(1)`;im.style.opacity='1';});
-    setTimeout(()=>{im.style.transition='transform .35s cubic-bezier(.7,0,.84,0),opacity .35s';im.style.transform=`translate(${x-w/2}px,${y-h/2+24}px) scale(.85)`;im.style.opacity='0';setTimeout(()=>im.remove(),380);},320);
+    setTimeout(()=>{im.style.transition='transform .6s cubic-bezier(.7,0,.84,0),opacity .6s';im.style.transform=`translate(${x-w/2}px,${y-h/2+40}px) scale(.85)`;im.style.opacity='0';setTimeout(()=>im.remove(),650);},700);
     while(box.children.length>12) box.firstChild.remove();
   });
 }
