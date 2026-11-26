@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boltonestudio.netlify.app/sitemap.xml

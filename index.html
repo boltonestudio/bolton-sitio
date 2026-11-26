@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bolton — Estudio de diseño</title>
+<meta name="description" content="Bolton es un estudio independiente de diseño y branding de Asunción, Paraguay, fundado en 2020: identidad corporativa, logotipos, naming, packaging, rebranding y dirección de arte.">
+<link rel="canonical" href="https://boltonestudio.netlify.app/">
+<meta property="og:title" content="Bolton — Estudio de diseño y branding en Asunción, Paraguay">
+<meta property="og:description" content="Creamos marcas con estrategia, creatividad y excelencia visual.">
+<meta property="og:url" content="https://boltonestudio.netlify.app/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Bolton Estudio","alternateName":"Bolton","description":"Estudio independiente de diseño y branding de Asunción, Paraguay, fundado en 2020. Identidad corporativa, diseño de logotipos, naming, packaging, rebranding y dirección de arte.","url":"https://boltonestudio.netlify.app/","email":"boltonbranding@gmail.com","telephone":"+595972444227","foundingDate":"2020","founder":{"@type":"Person","name":"Diego Centurión","jobTitle":"Fundador y director creativo"},"address":{"@type":"PostalAddress","addressLocality":"Asunción","addressCountry":"PY"},"areaServed":["Paraguay","Latinoamérica"],"knowsAbout":["Branding","Identidad corporativa","Diseño de logotipos","Naming","Packaging","Rebranding","Dirección de arte"],"award":"Shortlist Premios Tatakua, Diseño de identidad corporativa (Zeppelin)","sameAs":["https://www.instagram.com/boltonestudio/","https://www.behance.net/boltonstudio"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cossette+Titre&family=DM+Mono:wght@500&family=Oswald:wght@370&display=swap" rel="stylesheet">
+<style>
+/* VOICE: minimal, editorial, blanco y negro; la obra pone el color.
+   IDEA: la referencia Jetton: catálogo claro, títulos condensados enormes y fichas en monoespaciada.
+   PICTURE: las láminas de cada proyecto, que aparecen tras una grilla de celdas ASCII.
+   COLOUR/TYPE: fondo #f7f7f7, tinta #000, gris #b8b8b8. Cossette Titre (títulos) + DM Mono 500 (todo lo demás, en mayúsculas).
+   LAYOUT: header fijo transparente, márgenes de 3vw, grilla de 12 columnas con tarjetas asimétricas. */
+:root{color-scheme:light;--bg:#f7f7f7;--bg2:#0e0e0e;--ink:#000;--mute:#b8b8b8;--soft:#6b6b6b;--line:#e1e1e1;--bg3:#ececec;--disp:"Cossette Titre","Oswald","Arial Narrow",sans-serif;--mono:"DM Mono",ui-monospace,monospace;--pad:clamp(18px,2.93vw,56px);--hh:100px;--ease:cubic-bezier(.76,0,.24,1)}
+*{box-sizing:border-box;min-width:0}
+/* modos: claro (por defecto), oscuro y flúor */
+:root[data-mode=dark]{color-scheme:dark;--bg:#0b0b0b;--bg2:#161616;--ink:#f2f2f2;--mute:#4a4a4a;--soft:#9a9a9a;--line:#262626;--bg3:#181818}
+:root[data-mode=fluor]{--bg:#d9ff3f;--bg2:#0e0e0e;--ink:#000;--mute:#00000059;--soft:#00000099;--line:#00000026;--bg3:#0000000f}
+html{scroll-padding-top:140px;background:var(--bg)}
+body,.fbar{transition:background-color .5s,color .5s}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/20px var(--mono);letter-spacing:-.005em;text-transform:uppercase;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:1px solid var(--ink);outline-offset:4px}
+::selection{background:var(--ink);color:var(--bg)}
+.disp{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:1;letter-spacing:-.02em;margin:0}
+.lab{font:500 16px/20px var(--mono);letter-spacing:-.005em;text-transform:uppercase}
+.mute{color:var(--soft)}
+.pend{display:inline-block;font:500 11px/1 var(--mono);text-transform:uppercase;color:#a66a00;border:1px dashed #d6a24a;padding:4px 6px;border-radius:3px;vertical-align:middle;white-space:nowrap}
+body.no-pend .pend{display:none}
+.line{display:block;overflow:hidden;padding-bottom:.02em}.line>span{display:block}
+.ch{display:inline-block;will-change:transform}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto;height:var(--hh);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 var(--pad);z-index:60;color:#fff;mix-blend-mode:difference}
+.logo{display:flex;align-items:center;gap:12px;min-height:44px}
+.bmark{width:28px;height:32px;display:block;overflow:visible}
+.nav{display:flex;gap:30px}
+.nav a{position:relative;padding:12px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:9px;height:1.5px;background:currentColor;transition:right .5s var(--ease)}
+.nav a:hover::after,.nav a.on::after{right:0}
+.mbtn{display:flex;align-items:center;gap:16px;min-height:44px}
+.hd-r{display:flex;align-items:center;gap:clamp(18px,2.5vw,40px)}
+.clock{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.clock{display:none}}
+.mode{display:flex;align-items:center;gap:10px;min-height:44px}
+.mode i{width:14px;height:14px;border-radius:50%;border:1.5px solid currentColor;display:block;background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+:root[data-mode=fluor] .hd{color:#000;mix-blend-mode:normal}
+:root[data-mode=fluor] body.hd-light .hd{color:#fff}
+:root[data-mode=fluor] .mode i{background:#d9ff3f;border-color:#000}
+:root[data-mode=fluor] .cur{background:#000;mix-blend-mode:normal}
+:root[data-mode=fluor] .cur.link{background:transparent;box-shadow:inset 0 0 0 1.5px #000}
+.dots{position:relative;width:21px;height:21px}
+.dots b{position:absolute;top:50%;width:5px;height:5px;margin-top:-2.5px;background:currentColor;border-radius:50%;transition:all .5s var(--ease)}
+.dots b:nth-child(1){left:0}.dots b:nth-child(2){left:8px}.dots b:nth-child(3){left:16px}
+.menu-open .dots b{width:21px;height:2px;left:0;border-radius:0;margin-top:-1px}
+.menu-open .dots b:nth-child(1){transform:rotate(45deg)}.menu-open .dots b:nth-child(3){transform:rotate(-45deg)}.menu-open .dots b:nth-child(2){opacity:0}
+
+/* menu overlay */
+.ov{position:fixed;inset:0;background:var(--bg2);color:#fff;z-index:55;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:56px;clip-path:inset(0 0 100% 0);visibility:hidden}
+.menu-open .ov{visibility:visible}
+.ov nav{display:flex;flex-direction:column;align-items:center}
+.ov nav a{font-size:clamp(48px,6.34vw,120px);line-height:1.05;transition:opacity .4s}
+.ov nav:hover a{opacity:.3}.ov nav a:hover{opacity:1}
+.pill{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:4px;background:#fff;color:#000}
+.ov .ovf{position:absolute;bottom:30px;left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#8a8a8a}
+
+/* veil + preloader */
+.veil{position:fixed;inset:0;background:var(--bg2);z-index:80;transform:translateY(100%);visibility:hidden;display:grid;place-items:center;pointer-events:none;color:#fff}
+.veil .disp{font-size:clamp(48px,6.34vw,120px)}
+.pre{position:fixed;inset:0;background:var(--bg);z-index:90;box-shadow:0 1px 0 var(--ink),0 18px 40px -18px #0000002e}
+.pre canvas{position:absolute;inset:0;width:100%;height:100%}
+.pre .pmark{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink);z-index:2;pointer-events:none}.pre .pmark .bmark{width:clamp(120px,19vmin,230px);height:auto;aspect-ratio:615/695;opacity:0}
+.pre .hint{position:absolute;bottom:30px;right:var(--pad);color:#8a8a8a;z-index:2}
+.pre .cnt{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--ink);z-index:2}
+.flyer{position:fixed;z-index:95;color:var(--ink);pointer-events:none}.flyer .bmark{width:100%;height:100%;display:block}
+.no-js-anim .pre{display:none}
+
+/* cursor */
+.cur{opacity:0;position:fixed;left:0;top:0;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3Cmask%20id%3D%22m%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff%22/%3E%3Cg%20stroke%3D%22%23000%22%20stroke-width%3D%2210%22%3E%3Cpath%20d%3D%22M24%2050H76%22/%3E%3Cpath%20d%3D%22M37%2027.5L63%2072.5%22/%3E%3Cpath%20d%3D%22M63%2027.5L37%2072.5%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23fff%22%20mask%3D%22url%28%23m%29%22/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3Cmask%20id%3D%22m%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%23fff%22/%3E%3Cg%20stroke%3D%22%23000%22%20stroke-width%3D%2210%22%3E%3Cpath%20d%3D%22M24%2050H76%22/%3E%3Cpath%20d%3D%22M37%2027.5L63%2072.5%22/%3E%3Cpath%20d%3D%22M63%2027.5L37%2072.5%22/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22%23fff%22%20mask%3D%22url%28%23m%29%22/%3E%3C/svg%3E") center/100% 100% no-repeat;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:100;display:grid;place-items:center;color:#fff;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),border-radius .35s var(--ease),background .3s}
+.cur span{font:500 18px/1 var(--mono);opacity:0;transition:opacity .2s}
+.cur.big,.cur.link{-webkit-mask:none;mask:none}
+.cur.big{width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:3px;background:#000;mix-blend-mode:normal}.cur.big span{opacity:1}
+.cur.link{width:26px;height:26px;margin:-13px 0 0 -13px;background:transparent;box-shadow:inset 0 0 0 1.5px #fff}
+.cur.on{opacity:1}
+@media (hover:none){.cur{display:none}}
+@media (hover:hover){body.has-cur,body.has-cur a,body.has-cur button{cursor:none}}
+
+/* layout */
+main{min-height:100vh}
+.band{padding:clamp(64px,9vw,150px) var(--pad)}
+.hero{padding:160px var(--pad) 0}
+.hero h1{font-size:clamp(54px,9.875vw,200px)}
+.hero .sub{margin:clamp(48px,9vh,100px) 0 0;display:grid;gap:30px}
+.hero .sub p{margin:0;max-width:72ch}
+.hero.home{min-height:100svh;display:flex;flex-direction:column;padding-bottom:30px}
+.hero.home .sub{margin-top:auto;grid-template-columns:minmax(0,1fr) auto;align-items:end;padding-top:48px}
+.stx{display:flex;align-items:center;gap:22px;white-space:nowrap;min-height:44px}
+.stx svg{animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+
+/* filter bar */
+.fbar{position:sticky;top:calc(var(--hh) - 26px);z-index:20;background:var(--bg);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;margin:56px 0 0;padding:0 var(--pad);height:76px;border-top:1px solid var(--line)}
+.fbar .tg{display:flex;align-items:center;gap:22px;min-height:44px;justify-self:center}
+.fbar .vw{display:flex;gap:36px;justify-self:end}
+.vw button{display:flex;gap:28px;align-items:center;min-height:44px;color:var(--mute);transition:color .3s}.vw button.on{color:var(--ink)}
+.fpanel{overflow:hidden;height:0;padding:0 var(--pad)}
+.fpanel .fl{display:flex;flex-wrap:wrap;gap:0 .25em;padding:24px 0 40px;font-size:clamp(30px,3.72vw,72px);line-height:1.1}
+.fl button{color:var(--mute);transition:color .3s;display:inline-flex;align-items:baseline}
+.fl button:hover,.fl button.on{color:var(--ink)}
+.fl sup{font:500 12px var(--mono);margin-left:4px;vertical-align:super}
+.fl .w{display:inline-block;overflow:hidden}
+
+/* grid */
+.works{padding:clamp(48px,6vw,90px) var(--pad) clamp(80px,10vw,160px)}
+.grid,.home-works{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--pad);row-gap:clamp(80px,12vw,200px);align-items:start}
+.card{display:block}
+.card.l0{grid-column:1/4}.card.l1{grid-column:7/13}.card.l2{grid-column:3/6}.card.l3{grid-column:6/9}.card.l4{grid-column:1/7}.card.l5{grid-column:10/13}
+.card h3{font-size:clamp(24px,2.93vw,56px);line-height:1.1;letter-spacing:-.003em;margin-bottom:17px}
+.media{position:relative;overflow:hidden;aspect-ratio:var(--r,4/5);background:var(--bg3)}
+.media-in{position:absolute;inset:-7% 0;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover .media-in{transform:scale(1.05)}
+.meta{display:flex;justify-content:space-between;gap:12px;margin-top:10px;line-height:30px}
+.ascii{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+
+/* placeholder image */
+.ph{position:absolute;inset:0;background:var(--bg3);display:flex;flex-direction:column;justify-content:space-between;padding:7% 6%;overflow:hidden}
+.ph .pw{font-family:var(--disp);text-transform:uppercase;font-size:clamp(40px,7vw,120px);line-height:.9;color:var(--ink);opacity:.06;overflow-wrap:anywhere}
+
+/* list view */
+.list{display:none}
+.is-list .grid{display:none}.is-list .list{display:block}
+.row{display:grid;grid-template-columns:3.2em minmax(0,1.4fr) minmax(0,1fr) 5em;gap:16px;align-items:center;min-height:64px;transition:color .3s}
+.row .ry{text-align:right}
+.list:hover .row{color:var(--mute)}.list .row:hover{color:var(--ink)}
+.lp{position:fixed;left:0;top:0;width:240px;aspect-ratio:4/5;pointer-events:none;z-index:30;opacity:0;overflow:hidden;transform:translate(-50%,-50%) scale(.85);transition:opacity .3s,transform .45s var(--ease)}
+.lp.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media (hover:none){.lp{display:none}}
+.empty{display:none;padding:10vh 0;max-width:52ch}
+.empty.on{display:block}
+
+/* sections */
+.big-p{font-family:var(--disp);text-transform:uppercase;font-size:clamp(30px,3.72vw,72px);line-height:1.05;letter-spacing:-.02em;max-width:22ch;margin:0;text-wrap:balance}
+.txt{text-transform:none;font-size:16px;line-height:1.5;max-width:60ch}
+.split{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:var(--pad);align-items:start}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(40px,6vw,90px)}
+.sec-h .disp{font-size:clamp(48px,6.34vw,120px)}
+.rows>div{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,2fr) auto;gap:16px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
+.rows .disp{font-size:clamp(26px,2.93vw,56px)}
+.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));column-gap:var(--pad)}
+.svc div{padding:24px 0 34px;border-top:1px solid var(--line)}
+.svc .disp{font-size:clamp(28px,2.93vw,56px);display:block;margin-top:14px}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags span{border:1px solid var(--ink);border-radius:4px;padding:10px 14px}
+.cta{display:block;padding:clamp(80px,12vw,200px) var(--pad);border-top:1px solid var(--line)}
+.cta .disp{font-size:clamp(80px,17vw,320px);transition:letter-spacing .7s cubic-bezier(.2,.7,.2,1)}
+.cta:hover .disp{letter-spacing:0}
+
+/* home: destacados a pantalla completa */
+.feat{position:relative}
+.slide{position:sticky;top:0;display:block;height:100svh;overflow:hidden;color:#fff;background:#111}
+.slide-img{position:absolute;inset:0}
+.slide-img img{transform:scale(1.04);filter:grayscale(1) contrast(1.08) brightness(.55);transition:filter .8s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.slide:hover .slide-img img{filter:grayscale(1) contrast(1.08) brightness(.68);transform:scale(1.07)}
+.slide::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 50%,#0007,#0000 70%),linear-gradient(#0000 60%,#0008);pointer-events:none;z-index:2}
+.slide-t{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-size:clamp(48px,6.34vw,140px);z-index:3;padding:0 var(--pad)}
+.slide-b{position:absolute;left:var(--pad);right:var(--pad);bottom:30px;display:flex;justify-content:space-between;z-index:3}
+.allw{display:grid;place-items:center;padding:clamp(56px,7vw,110px) var(--pad);border-bottom:1px solid var(--line)}
+.allw a{font-size:clamp(30px,3.72vw,72px);line-height:1.1;border-bottom:3px solid currentColor;padding-bottom:2px}
+.ul{border-bottom:1.5px solid currentColor;padding-bottom:2px}
+/* home: frase grande con palabras repartidas */
+.stmt{padding:clamp(100px,14vw,240px) var(--pad) clamp(80px,9vw,160px)}
+.stmt-t{font-size:clamp(46px,9.875vw,200px);line-height:1.04}
+.sl{display:flex;justify-content:center;white-space:nowrap}
+.sw{flex:0 1 auto;flex-grow:0}.sw:first-child{padding-right:.28em}
+.stmt-c{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--pad);width:min(100%,50%);margin:clamp(80px,9vw,150px) 0 0 auto}
+.stmt-c p{margin:0}
+/* project page */
+.pj-hero{padding:160px var(--pad) 0}
+.pj-hero h1{font-size:clamp(64px,13vw,260px)}
+.pj-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding:30px 0;margin-top:56px;border-top:1px solid var(--line)}
+.pj-meta div>*{display:block}.pj-meta .mute{margin-bottom:6px}
+.gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--pad);padding:0 var(--pad)}
+.gal .full{grid-column:1/-1}.gal .solo{grid-column:1/-1;width:min(100%,640px);justify-self:center}
+.gal figure{margin:0}
+
+/* footer */
+.ft{border-top:1px solid var(--line);padding:clamp(56px,7vw,110px) var(--pad) 30px}
+.ft-top{display:flex;justify-content:space-between;gap:16px;margin-bottom:24px}
+.ft-top b{display:inline-block;width:10px;height:10px;background:currentColor;margin-right:12px;vertical-align:1px}
+.ft-next{display:block;margin-bottom:clamp(64px,9vw,140px)}
+.ft-next .disp{font-size:clamp(72px,13vw,260px);transition:transform .8s cubic-bezier(.2,.7,.2,1);display:inline-block}
+.ft-next:hover .disp{transform:translateX(1.5vw)}
+.ft-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.ft-grid h4{margin:0 0 16px;font-weight:500}
+.ft-grid p{text-transform:none;line-height:1.5}
+.ft-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.ft-grid a{display:inline-block;padding:4px 0}
+.ft-grid a:hover{color:var(--soft)}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:72px}
+.top{display:flex;align-items:center;gap:10px;min-height:44px}
+
+@media (max-width:1000px){
+  .nav{display:none}
+  .split{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pj-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card.l0,.card.l2,.card.l3,.card.l5{grid-column:span 6}.card.l1,.card.l4{grid-column:span 6}
+}
+@media (max-width:640px){
+  .stmt-c{grid-template-columns:1fr;width:100%}.stmt-t{font-size:10.4vw}
+
+  :root{--hh:76px}
+  body,.lab{font-size:14px;line-height:18px}
+  .hero,.pj-hero{padding-top:130px}
+  .grid,.home-works{grid-template-columns:1fr;row-gap:64px}
+  .card.l0,.card.l1,.card.l2,.card.l3,.card.l4,.card.l5{grid-column:1/-1}
+  .fbar{grid-template-columns:auto 1fr;height:64px}
+  .fbar .stx{display:none}
+  .fbar .tg{justify-self:start}
+  .vw{gap:18px}.vw button{gap:10px}
+  .hero.home .sub{grid-template-columns:1fr}
+  .row{grid-template-columns:2.4em minmax(0,1fr) 3.5em}
+  .row .rc{display:none}
+  .rows>div{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+</style>
+<script>try{var m=localStorage.getItem('bolton-mode');if(m&&m!=='light')document.documentElement.dataset.mode=m;}catch(e){}</script>
+</head>
+<body class="has-cur">
+<noscript><div style="padding:40px;font-family:monospace">
+<h1>Bolton — Estudio de diseño y branding en Asunción, Paraguay</h1>
+<p>Bolton es un estudio independiente de diseño nacido en 2020 en Asunción, Paraguay, fundado por el diseñador Diego Centurión. Creamos marcas con estrategia, creatividad y excelencia visual.</p>
+<h2>Servicios</h2><p>Branding e identidad corporativa, diseño de logotipos, naming y estrategia de marca, packaging, rebranding y dirección de arte.</p>
+<h2>Cómo trabajamos</h2><p>01 Observar. 02 Cuestionar. 03 Conceptualizar. 04 Materializar.</p>
+<h2><a href="/trabajos/">Trabajos</a></h2><ul><li><a href="/trabajos/la-g/">La G</a> — Identidad visual (2026)</li><li><a href="/trabajos/zeppelin/">Zeppelin, Conservatorio de Música</a> — Rebranding (2025). Shortlist en los Premios Tatakua, Diseño de identidad corporativa.</li><li><a href="/trabajos/alvarium/">Alvarium</a> — Identidad visual (2021)</li><li><a href="/trabajos/ubana/">Ubana Grill House</a> — Identidad visual (2021)</li><li><a href="/trabajos/carmelo/">Carmelo</a> — Identidad visual (2020)</li><li><a href="/trabajos/trendy-paws/">Trendy Paws</a> — Identidad visual (2021)</li><li><a href="/trabajos/altea/">Altea, constructora</a> — Rebranding (2019)</li></ul>
+<h2><a href="/criterio/">Criterio</a></h2><ul><li><a href="/criterio/zeppelin-hacer-visible-lo-que-se-escucha/">Hacer visible lo que se escucha</a> — notas de Diego Centurión sobre la identidad de Zeppelin</li></ul>
+<h2>Contacto</h2><p>boltonbranding@gmail.com · WhatsApp +595 972 444 227 · Instagram @boltonestudio · Behance boltonstudio</p>
+</div></noscript>
+
+<div class="pre" id="pre" aria-hidden="true">
+  <canvas id="preCv"></canvas>
+  <div class="pmark" id="pmark" aria-hidden="true"></div>
+  <div class="cnt lab" id="cnt">000</div>
+</div>
+
+<header class="hd">
+  <a href="#inicio" class="logo" aria-label="Bolton, inicio"><svg class="bmark" viewBox="315 295 615 695" aria-hidden="true"> <defs> <clipPath id="bl1"><path d="M413 486L497 450H747L831 486V512L686 573Q622 600 558 573L413 512Z"/><circle cx="622" cy="438" r="126"/></clipPath> <clipPath id="bl2"><path d="M413 774L497 738H747L831 774V800L686 861Q622 888 558 861L413 800Z"/><circle cx="622" cy="726" r="126"/></clipPath> <clipPath id="bo"><path d="M327 428L512 350Q622 300 733 350L917 428V568L743 641L917 714V857L716 940Q622 980 528 940L327 857Z"/></clipPath> <mask id="bm" maskUnits="userSpaceOnUse" x="300" y="280" width="650" height="720"> <path fill="#fff" d="M327 428L512 350Q622 300 733 350L917 428V568L743 641L917 714V857L716 940Q622 980 528 940L327 857Z"/> <path fill="#000" d="M413 604L500 641L413 678Z"/> <g class="beye" data-cy="512"> <path fill="#000" d="M413 486L497 450H747L831 486V512L686 573Q622 600 558 573L413 512Z"/> <g clip-path="url(#bo)"><g clip-path="url(#bl1)"><g class="bpup"><circle cx="622" cy="438" r="126" fill="#fff"/> <g stroke="#000" stroke-width="22" stroke-linecap="butt"><path d="M564 462H680"/><path d="M591 407L653 517"/><path d="M653 407L591 517"/></g></g></g></g> </g> <g class="beye" data-cy="800"> <path fill="#000" d="M413 774L497 738H747L831 774V800L686 861Q622 888 558 861L413 800Z"/> <g clip-path="url(#bo)"><g clip-path="url(#bl2)"><g class="bpup"><circle cx="622" cy="726" r="126" fill="#fff"/> <g stroke="#000" stroke-width="22" stroke-linecap="butt"><path d="M564 750H680"/><path d="M591 695L653 805"/><path d="M653 695L591 805"/></g></g></g></g> </g> </mask> </defs> <rect x="300" y="280" width="650" height="720" fill="currentColor" mask="url(#bm)"/> </svg>Bolton</a>
+  <nav class="nav lab" aria-label="Principal">
+    <a href="#inicio" data-r="inicio">Inicio</a>
+    <a href="#trabajos" data-r="trabajos">Trabajos</a>
+    <a href="#estudio" data-r="estudio">Estudio</a>
+    <a href="#contacto" data-r="contacto">Contacto</a>
+  </nav>
+  <div class="hd-r">
+    <span class="clock lab" id="clock" aria-label="Hora en Asunción">Asunción --:--:--</span>
+    <button class="mode lab" id="mode" aria-label="Cambiar modo de color"><i></i><span id="modeTxt">Claro</span></button>
+    <button class="mbtn lab" id="mbtn" aria-expanded="false" aria-controls="ov"><span id="mtxt">Menú</span><span class="dots"><b></b><b></b><b></b></span></button>
+  </div>
+</header>
+
+<div class="ov" id="ov" role="dialog" aria-label="Menú">
+  <nav>
+    <a class="disp" href="#inicio"><span class="line"><span>Inicio</span></span></a>
+    <a class="disp" href="#trabajos"><span class="line"><span>Trabajos</span></span></a>
+    <a class="disp" href="#estudio"><span class="line"><span>Estudio</span></span></a>
+    <a class="disp" href="#contacto"><span class="line"><span>Contacto</span></span></a>
+  </nav>
+  <a class="pill lab" href="#contacto">Hablemos</a>
+  <div class="ovf lab"><span>Independent design practice · Paraguay</span><a href="https://www.behance.net/boltonstudio">Behance ↗</a></div>
+</div>
+
+<div class="cur" id="cur" aria-hidden="true"><span id="curTxt"></span></div>
+<div class="lp" id="lp" aria-hidden="true"></div>
+
+<main id="view"></main>
+
+<footer class="ft" id="ft"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+{
+/* ===================== DATOS DE BOLTON =====================
+   Todo sale de los documentos del proyecto. Lo que falta queda vacío y se muestra como "pendiente".
+   - cats: categorías del proyecto (usar los nombres de CATS). year: año. client: cliente/rubro.
+   - images: rutas de imágenes (ej. "img/zeppelin-01.jpg") subidas junto a esta página.
+   Para ocultar las marcas amarillas de "pendiente", poner SHOW_PENDING = false. */
+const SHOW_PENDING = true;
+const CONTACT = { email:'boltonbranding@gmail.com', instagram:'https://www.instagram.com/boltonestudio/', whatsapp:'0972 444 227', whatsappLink:'https://wa.me/595972444227', behance:'https://www.behance.net/boltonstudio', location:'Paraguay' };
+const CATS = ['Identidad visual','Rebranding','Dirección de arte','Packaging'];
+/* Textos y años de Behance (behance.net/boltonstudio), 19 nov 2026. */
+let P = [
+  {id:'la-g', name:'La G', client:'La G', cats:['Identidad visual'], year:'2026', award:'',
+   desc:'Cada desafío es distinto. Entonces, ¿por qué responder siempre igual? Esa pregunta define cómo trabaja La G y fue el punto de partida de su identidad. Una sola forma no alcanzaba: la marca necesitaba la misma libertad que ellos para cambiar y adaptarse a cada contexto sin perder su carácter. El resultado es un sistema construido desde una sola letra: un signo estable y un ecosistema de G que se ordenan, se estiran, se rompen y estallan, y que en cada pieza encuentran una nueva forma de mostrarse.', images:[]},
+  {id:'zeppelin', name:'Zeppelin', client:'Conservatorio de Música', cats:['Rebranding'], year:'2025', award:'Shortlist Tatakua · Diseño de identidad corporativa',
+   desc:'Zeppelin es un conservatorio de música líder y referente en el mercado paraguayo, con años de trayectoria. Por primera vez en décadas surgía la necesidad de reconstruir su imagen, buscando una identidad que refleje su esencia musical y su compromiso con el sonido. Por eso creamos una identidad que nace de la música y fluye mediante sus ondas sonoras a través de todo un universo visual que respira el alma de la marca.', images:[]},
+  {id:'alvarium', name:'Alvarium', client:'Estudio de consultores creativos', cats:['Identidad visual'], year:'2021', award:'',
+   desc:'Alvarium (colmena, en latín) es un estudio de consultores creativos que, como una colmena, empuja el trabajo con sinergia. Así como las abejas usan su visión distinta a su favor, creamos una identidad basada en la visión cromática ultravioleta de la abeja: fotografías de panales y flores estimuladas con una luz especial para ver un mundo totalmente distinto al que conocemos. El resultado: una marca que demuestra que una visión diferente da resultados únicos y genuinos.', images:[]},
+  {id:'ubana', name:'Ubana Grill House', client:'Parrilla', cats:['Identidad visual'], year:'2021', award:'',
+   desc:'Dos elementos son parte de todo lo relacionado con la parrilla: el fuego y las líneas que la parrilla deja como marca. Un monograma construido con las iniciales de la marca da forma a un símbolo inspirado en el fuego, y la construcción tipográfica de la marca principal nace de las marcas de la parrilla.', credits:'Dirección de arte, creatividad y styling: Diego Centurión · Arte final y fotografía: Rodrigo Centurión', images:[]},
+  {id:'carmelo', name:'Carmelo', client:'Emprendimiento gastronómico', cats:['Identidad visual'], year:'2020', award:'',
+   desc:'El fuego cambió todo a su paso: hizo que la cocina sea cocina. Carmelo es un emprendimiento gastronómico que nace rindiendo homenaje a ese elemento, y usa el fuego como herramienta para crear un ecosistema visual que revive el concepto de la marca en cada trazo.', credits:'Dirección de arte y creatividad: Diego Centurión · Fotografía: Carol Rojas', images:[]},
+  {id:'trendy-paws', name:'Trendy Paws', client:'Estética canina', cats:['Identidad visual'], year:'2021', award:'',
+   desc:'Las mascotas tienen personalidades distintas: hogareñas, territoriales, divertidas, tranquilas, dormilonas. A todas las amamos y queremos que se vean bien. Por eso creamos una marca para una tienda de estética canina que lleva esa particularidad como esencia de todo su universo visual.', images:[]},
+  {id:'altea', name:'Altea', client:'Constructora', cats:['Rebranding'], year:'2019', award:'',
+   desc:'Altea es una constructora que necesitaba un rebranding. Para construir la marca usamos algo que forma parte del día a día de los constructores: el ladrillo.', images:[]},
+  {id:'ferran-blau', name:'Ferran Blau', client:'', cats:[], year:'', award:'', desc:'', images:[]},
+  {id:'rega', name:'Rega', client:'', cats:[], year:'', award:'', desc:'', images:[]},
+  {id:'food-n-veggies', name:"Food'n Veggies", client:'', cats:[], year:'', award:'', desc:'', images:[]},
+  {id:'zehra', name:'Zehra', client:'', cats:[], year:'', award:'', desc:'', images:[]},
+  {id:'norbe', name:'Norbe', client:'', cats:[], year:'', award:'', desc:'', images:[]}
+];
+const IMGS = {"altea":[["img/altea/altea-05.jpg",1.777],["img/altea/altea-01.jpg",1.777],["img/altea/altea-02.jpg",1.777],["img/altea/altea-04.jpg",1.777],["img/altea/altea-06.jpg",1.777],["img/altea/altea-07.jpg",1.777],["img/altea/altea-08.gif",1.778]],"alvarium":[["img/alvarium/alvarium-01.jpg",1.5],["img/alvarium/alvarium-02.jpg",1.777],["img/alvarium/alvarium-03.jpg",1.777],["img/alvarium/alvarium-04.jpg",2.675],["img/alvarium/alvarium-05.jpg",2.675],["img/alvarium/alvarium-06.jpg",2.675],["img/alvarium/alvarium-07.jpg",2.831],["img/alvarium/alvarium-08.jpg",1.5],["img/alvarium/alvarium-09.jpg",1.5],["img/alvarium/alvarium-10.jpg",1.5],["img/alvarium/alvarium-11.jpg",1.5],["img/alvarium/alvarium-12.jpg",1.5],["img/alvarium/alvarium-13.jpg",1.5],["img/alvarium/alvarium-14.jpg",1.5],["img/alvarium/alvarium-15.jpg",1.5],["img/alvarium/alvarium-16.jpg",1.5],["img/alvarium/alvarium-17.jpg",1.5]],"carmelo":[["img/carmelo/carmelo-01.jpg",1.5],["img/carmelo/carmelo-02.jpg",1.777],["img/carmelo/carmelo-03.jpg",0.667],["img/carmelo/carmelo-04.jpg",0.705],["img/carmelo/carmelo-05.jpg",1.777],["img/carmelo/carmelo-06.jpg",0.562],["img/carmelo/carmelo-07.jpg",0.667],["img/carmelo/carmelo-08.jpg",1.5],["img/carmelo/carmelo-09.jpg",0.667],["img/carmelo/carmelo-10.jpg",0.667],["img/carmelo/carmelo-11.jpg",1.777],["img/carmelo/carmelo-12.jpg",1.777],["img/carmelo/carmelo-13.jpg",0.667],["img/carmelo/carmelo-14.jpg",1.5]],"la-g":[["img/la-g/la-g-01.jpg",1.777],["img/la-g/la-g-03.jpg",1.777],["img/la-g/la-g-04.jpg",1.777],["img/la-g/la-g-05.jpg",1.592],["img/la-g/la-g-06.jpg",1.777],["img/la-g/la-g-07.jpg",0.75],["img/la-g/la-g-08.jpg",0.708],["img/la-g/la-g-09.jpg",1.333],["img/la-g/la-g-10.gif",1.778],["img/la-g/la-g-11.jpg",0.75],["img/la-g/la-g-12.jpg",0.75],["img/la-g/la-g-13.jpg",1.777],["img/la-g/la-g-14.jpg",0.75],["img/la-g/la-g-15.jpg",1.777],["img/la-g/la-g-16.jpg",1.779],["img/la-g/la-g-18.jpg",1.778],["img/la-g/la-g-19.jpg",1.777],["img/la-g/la-g-20.jpg",0.75],["img/la-g/la-g-21.jpg",0.745],["img/la-g/la-g-22.jpg",1.777],["img/la-g/la-g-24.jpg",1.777],["img/la-g/la-g-26.gif",1.778]],"trendy-paws":[["img/trendy-paws/trendy-paws-01.jpg",1.777],["img/trendy-paws/trendy-paws-02.jpg",1.777],["img/trendy-paws/trendy-paws-03.jpg",1.777],["img/trendy-paws/trendy-paws-04.jpg",1.5],["img/trendy-paws/trendy-paws-05.jpg",1.777],["img/trendy-paws/trendy-paws-06.jpg",1.779],["img/trendy-paws/trendy-paws-07.jpg",1.5],["img/trendy-paws/trendy-paws-08.jpg",1.0],["img/trendy-paws/trendy-paws-09.jpg",1.0],["img/trendy-paws/trendy-paws-10.jpg",1.0]],"ubana":[["img/ubana/ubana-07.jpg",1.5],["img/ubana/ubana-02.jpg",2.961],["img/ubana/ubana-03.jpg",2.961],["img/ubana/ubana-04.jpg",2.961],["img/ubana/ubana-05.jpg",2.961],["img/ubana/ubana-06.gif",2.53],["img/ubana/ubana-08.jpg",1.5],["img/ubana/ubana-09.jpg",1.5],["img/ubana/ubana-10.jpg",1.5],["img/ubana/ubana-11.jpg",0.667],["img/ubana/ubana-12.jpg",1.5],["img/ubana/ubana-13.jpg",1.5],["img/ubana/ubana-14.jpg",0.667],["img/ubana/ubana-15.gif",0.998],["img/ubana/ubana-16.jpg",1.5],["img/ubana/ubana-17.jpg",1.52],["img/ubana/ubana-18.jpg",1.5],["img/ubana/ubana-19.jpg",0.562]],"zeppelin":[["img/zeppelin/zeppelin-01.jpg",1.777],["img/zeppelin/zeppelin-02.jpg",1.777],["img/zeppelin/zeppelin-03.jpg",1.777],["img/zeppelin/zeppelin-04.jpg",1.777],["img/zeppelin/zeppelin-05.jpg",1.777],["img/zeppelin/zeppelin-07.jpg",1.777],["img/zeppelin/zeppelin-08.jpg",1.777],["img/zeppelin/zeppelin-09.jpg",1.777],["img/zeppelin/zeppelin-10.jpg",1.777],["img/zeppelin/zeppelin-11.jpg",1.777],["img/zeppelin/zeppelin-12.jpg",0.627],["img/zeppelin/zeppelin-13.jpg",0.666],["img/zeppelin/zeppelin-14.jpg",1.5],["img/zeppelin/zeppelin-15.jpg",1.779],["img/zeppelin/zeppelin-16.jpg",1.777],["img/zeppelin/zeppelin-17.jpg",1.777],["img/zeppelin/zeppelin-18.jpg",1.777],["img/zeppelin/zeppelin-19.jpg",1.777],["img/zeppelin/zeppelin-20.jpg",0.627],["img/zeppelin/zeppelin-21.jpg",1.777]]};
+P.forEach(p=>{if(IMGS[p.id])p.images=IMGS[p.id]});
+/* Proyectos sin imágenes todavía (Ferran Blau, Rega, Food'n Veggies, Zehra, Norbe): quedan ocultos hasta tener material. */
+for(let i=P.length-1;i>=0;i--) if(!P[i].images.length) P.splice(i,1);
+/* Reconocimientos del estudio (solo los de Bolton). */
+const AWARDS = [
+  {fest:'Tatakua', prize:'Shortlist', cat:'Diseño de identidad corporativa', project:'zeppelin', year:''}
+];
+const SERVICES = [
+  ['Estrategia de identidad','Definimos qué es la marca, a quién le habla y qué la hace distinta, antes de dibujar nada.'],
+  ['Identidad visual','Logotipo, tipografía, color y recursos gráficos que nacen de una misma idea.'],
+  ['Rebranding','Renovamos marcas con historia sin perder lo que las hace reconocibles.'],
+  ['Sistemas gráficos','Reglas y piezas para que la marca crezca con coherencia en cualquier soporte.'],
+  ['Dirección de arte','Llevamos la identidad a campañas, fotografía y piezas con un mismo criterio.'],
+  ['Packaging e identidad aplicada','Envases, papelería y señalética: los lugares donde la marca se toca.']
+];
+const PROCESS = [
+  ['Observar','Comprendemos el negocio, su entorno y las variables que definen su realidad. Escuchamos, investigamos y reunimos el contexto necesario para tomar decisiones.'],
+  ['Cuestionar','Examinamos lo establecido, identificamos tensiones y ponemos a prueba las ideas preconcebidas. Buscamos aquello que puede convertirse en una oportunidad para la marca.'],
+  ['Conceptualizar','Construimos una idea central capaz de dar sentido y dirección al proyecto. Un concepto sólido, distintivo y relevante que establece las bases de toda la identidad.'],
+  ['Materializar','Traducimos esa idea en un sistema de identidad visual. Definimos sus códigos, lenguajes y aplicaciones para construir una expresión coherente, reconocible y consistente.']
+];
+const CLIENTS = ['La G','Conservatorio Zeppelin','Alvarium','Ubana Grill House','Carmelo','Trendy Paws','Altea'];
+const VALUES = ['Lo esencial','La precisión de cada decisión','Libertad de pensamiento','Colaboración','Una perspectiva propia','Lo que permanece'];
+
+/* ===================== utilidades ===================== */
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const G=window.gsap, ST=window.ScrollTrigger;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ANIM=!!G && !RM;
+if(ST&&G) G.registerPlugin(ST);
+if(!SHOW_PENDING) document.body.classList.add('no-pend');
+if(!ANIM) document.documentElement.classList.add('no-js-anim');
+const pend=(t='pendiente')=>`<span class="pend">${t}</span>`;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const catTxt=p=>p.cats.length?esc(p.cats.join(' · ')):pend('categoría');
+const yearTxt=p=>p.year?esc(p.year):pend('año');
+const tone=i=>[13,17,11,15,19,12,16,14,18,13][i%10];
+const ph=(p,i,label)=>{
+  const im=p.images[i];
+  if(im) return `<img src="${esc(im[0])}" alt="${esc(p.name)}" loading="${i||P.indexOf(p)>3?'lazy':'eager'}" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`;
+  return `<div class="ph" style="--l:${tone(P.indexOf(p)+i)}%"><span class="pt">${pend(label||'imagen pendiente')}</span><span class="pw">${esc(p.name)}</span></div>`;
+};
+const media=(p,i,r,label)=>`<div class="media" data-mask style="--r:${r}"><div class="media-in" data-par>${ph(p,i,label)}</div></div>`;
+const lines=(arr)=>arr.map(t=>`<span class="line"><span data-split>${t}</span></span>`).join('');
+const RATIOS=['4/5','4/5','4/5','4/5','4/5','4/5'];
+
+/* ===================== vistas ===================== */
+const card=(p,k)=>`<a class="card l${k%6}" href="#${p.id}" data-cursor="↗" data-id="${p.id}">
+  <h3 class="disp">${esc(p.name)}</h3>${media(p,0,RATIOS[k%6])}
+  <div class="meta lab"><span data-cat="${esc(p.cats.join(' · '))}">${catTxt(p)}</span><span>${yearTxt(p)}</span></div></a>`;
+
+const secProcess=()=>`<section class="band" style="border-top:1px solid var(--line)">
+    <div class="sec-h" data-rv><h2 class="disp">Cómo trabajamos</h2><span class="lab">Cuatro pasos</span></div>
+    <div class="rows">${PROCESS.map((p,i)=>`<div data-rv><span class="disp">${String(i+1).padStart(2,'0')} — ${esc(p[0])}</span><span class="lab">${esc(p[1])}</span><span></span></div>`).join('')}</div>
+  </section>`;
+const secServices=()=>`<section class="band" style="border-top:1px solid var(--line)">
+    <div class="sec-h" data-rv><h2 class="disp">Servicios</h2></div>
+    <div class="svc">${SERVICES.map((s,i)=>`<div data-rv><span class="lab mute">${String(i+1).padStart(2,'0')}</span><span class="disp">${esc(s[0])}</span><p class="lab" style="margin:16px 0 0;max-width:34ch">${esc(s[1])}</p></div>`).join('')}</div>
+  </section>`;
+const secClients=()=>`<section class="band" style="border-top:1px solid var(--line)">
+    <div class="sec-h" data-rv><h2 class="disp">Confiaron en Bolton</h2></div>
+    <p class="big-p" data-rv style="max-width:none;font-size:clamp(30px,3.72vw,72px)">${CLIENTS.map(esc).join(', ')}.</p>
+  </section>`;
+const secAwards=()=>`<section class="band" style="border-top:1px solid var(--line)">
+    <div class="sec-h" data-rv><h2 class="disp">Reconocimientos del estudio</h2><span class="lab">Otorgados a Bolton</span></div>
+    <div class="rows">${AWARDS.map(a=>{const pj=P.find(p=>p.id===a.project);return `<div data-rv><span class="disp">${esc(a.fest)}</span><span class="lab">${esc(a.prize)} · ${esc(a.cat)}${pj?` · <a href="#${pj.id}" data-cursor-link>${esc(pj.name)} ↗</a>`:''}</span><span class="lab">${esc(a.year)}</span></div>`}).join('')}</div>
+  </section>`;
+
+const FEATURED=['la-g','zeppelin','alvarium'];
+function vInicio(){
+  const feat=FEATURED.map(id=>P.find(p=>p.id===id)).filter(Boolean);
+  return `<section class="hero home">
+    <h1 class="disp" data-hero>${lines(['Estudio de diseño','y creatividad'])}</h1>
+    <div class="sub lab"><p data-rv>Pensamiento, cultura visual y diseño al servicio de las marcas.<br><br>Independent design practice<br>Paraguay</p>
+    <a class="stx" href="#destacados" data-scroll>Scroll para explorar <svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 0v12M1 7l5 5 5-5"/></svg></a></div>
+  </section>
+  <section class="feat" id="destacados">${feat.map((p,i)=>`<a class="slide" href="#${p.id}" data-cursor="↗">
+      <div class="slide-img" data-mask>${ph(p,0)}</div>
+      <h2 class="disp slide-t">${esc(p.name)}</h2>
+      <div class="slide-b lab"><span>■ ${catTxt(p)}</span><span>Año ${yearTxt(p)}</span></div></a>`).join('')}</section>
+  <div class="allw"><a class="disp" href="#trabajos" data-cursor-link>Ver todos los trabajos</a></div>
+  <section class="stmt" aria-label="Creamos marcas con estrategia, creatividad y excelencia visual">
+    <p class="disp stmt-t" aria-hidden="true">${[['Creamos','marcas'],['con','estrategia,'],['creatividad','y'],['excelencia','visual']].map((ln,i)=>`<span class="sl" data-mode="${i%2?'shrink':'stretch'}"><span class="sw" style="flex-grow:1">${esc(ln[0])}</span><span class="sw">${esc(ln[1])}</span></span>`).join('')}</p>
+    <div class="stmt-c lab">
+      <p data-rv>Observamos, cuestionamos y descubrimos la idea que hace única a cada marca.</p>
+      <p data-rv>Le damos forma con un sistema visual que se reconoce en cada pieza, pantalla y superficie.<br><br><a href="#estudio" class="ul" data-cursor-link>Conocé el estudio</a></p>
+    </div>
+  </section>
+  ${secProcess()}
+  ${secAwards()}
+  <a class="cta" href="#contacto" data-cursor="→"><p class="lab" data-rv style="max-width:52ch">Nos interesa lo que hace única a cada marca y las posibilidades que existen para expresarlo.</p><h2 class="disp" data-rv>Hablemos</h2></a>`;
+}
+
+function vTrabajos(){
+  return `<section class="hero">
+    <h1 class="disp" data-hero>${lines(['Formas con','razón de ser'])}</h1>
+    <div class="sub lab"><p data-rv>La diferencia está en el criterio. En saber qué defender, qué cuestionar y qué merece existir.</p><p data-rv>Portafolio<br>${P.length} proyectos</p></div>
+  </section>
+  <div class="fbar lab">
+    <a class="stx" href="#lista" data-scroll>Scroll para explorar <svg width="11" height="13" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 0v12M1 7l5 5 5-5"/></svg></a>
+    <button class="tg" id="ftg" aria-expanded="false"><span id="ftgI">⇕</span><span id="ftgT">Categorías</span></button>
+    <div class="vw"><button class="on" data-v="grid">Grilla <span>⊞</span></button><button data-v="list">Lista <span>⋯</span></button></div>
+  </div>
+  <div class="fpanel" id="fpanel"><div class="fl disp" id="fl">
+    ${(()=>{const C=CATS.filter(c=>P.some(p=>p.cats.includes(c)));return ['Todos',...C].map((c,i)=>{const n=i?P.filter(p=>p.cats.includes(c)).length:P.length;return `<span class="w"><button data-f="${i?esc(c):'*'}" class="${i?'':'on'}">${esc(c)}<sup>${n}</sup>${i<C.length?',':''}</button></span>`}).join('')})()}
+  </div></div>
+  <section class="works" id="lista">
+    <div class="grid" id="grid">${P.map(card).join('')}</div>
+    <div class="list" id="list">${P.map((p,i)=>`<a class="row lab" href="#${p.id}" data-id="${p.id}" data-cursor-link><span>${String(i+1).padStart(2,'0')}</span><span class="rn">${esc(p.name)}</span><span class="rc">${catTxt(p)}</span><span class="ry">${yearTxt(p)}</span></a>`).join('')}</div>
+    <div class="empty lab" id="empty"><p class="big-p" style="margin-bottom:20px">Sin proyectos en esta categoría todavía.</p>${pend('asignar categorías a cada proyecto')}</div>
+  </section>`;
+}
+
+function vEstudio(){
+  return `<section class="hero">
+    <h1 class="disp" data-hero>${lines(['Un estudio','independiente'])}</h1>
+    <div class="sub lab"><p data-rv>Thoughtfully made.<br>Purposefully designed.</p></div>
+  </section>
+  <section class="band split" style="border-top:1px solid var(--line);margin-top:56px">
+    <p class="lab" data-rv>Qué es Bolton</p>
+    <div><p class="big-p" data-rv>Creemos en la belleza de lo esencial y en la precisión de una decisión.</p>
+    <p class="lab" data-rv style="max-width:60ch;margin-top:40px">Bolton es un estudio independiente de diseño nacido en 2020. Valoramos la libertad de pensamiento, la colaboración y abordar cada proyecto desde una perspectiva propia. No creemos en fórmulas universales: buscamos la respuesta adecuada para cada marca, hacemos menos cuando menos es suficiente y seguimos buscando cuando todavía hay algo mejor por descubrir.</p></div>
+  </section>
+  <section class="band split">
+    <p class="lab" data-rv>En lo que creemos</p>
+    <div class="tags lab">${VALUES.map(v=>`<span data-rv>${esc(v)}</span>`).join('')}</div>
+  </section>
+  ${secProcess()}
+  <section class="band split" style="border-top:1px solid var(--line)">
+    <div data-rv><div class="media" data-mask style="--r:4/5"><div class="media-in" data-par><img src="img/diego.jpg" alt="Diego Centurión" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%"></div></div></div>
+    <div><p class="lab" data-rv>Fundador y director creativo</p>
+    <h2 class="disp" style="font-size:clamp(48px,6.34vw,120px);margin:14px 0 32px" data-rv>Diego Centurión</h2>
+    <div class="lab" style="max-width:62ch;display:grid;gap:20px">
+      <p data-rv style="margin:0">Diego Centurión es diseñador gráfico y director de arte con más de 15 años de trayectoria en la industria creativa. Su recorrido profesional abarca distintos ámbitos del diseño y la publicidad, desde estudios y productoras hasta agencias, participando en el desarrollo de identidades, campañas y sistemas visuales para diversas marcas.</p>
+      <p data-rv style="margin:0">Trabajó como director de arte en Garabato MullenLowe y como senior graphic designer en Oniria/TBWA. A lo largo de su carrera, su trabajo ha sido reconocido en festivales nacionales e internacionales de diseño y publicidad, y ha participado en espacios de intercambio y reflexión sobre la disciplina.</p>
+      <p data-rv style="margin:0">Su interés por la identidad, la tipografía y la cultura visual se expresa en una búsqueda constante por explorar las posibilidades del diseño.</p>
+      <p data-rv style="margin:0">Bolton es la expresión de esa búsqueda: una práctica independiente desde la cual desarrollar una visión propia y profundizar en el diseño como disciplina, lenguaje y forma de expresión.</p>
+    </div></div>
+  </section>
+  ${secAwards()}`;
+}
+
+function vContacto(){
+  const r=(k,v,href)=>`<div data-rv><span class="disp">${k}</span><span class="lab">${v?(href?`<a href="${esc(href)}" data-cursor-link>${esc(v)}</a>`:esc(v)):pend()}</span><span></span></div>`;
+  return `<section class="hero">
+    <h1 class="disp" data-hero>${lines(['Hablemos'])}</h1>
+    <div class="sub lab"><p data-rv style="max-width:56ch">Cada proyecto parte de una conversación. Compartinos tu contexto y exploremos lo que podemos construir en conjunto.</p></div>
+  </section>
+  <section class="band"><div class="rows">
+    ${r('Email',CONTACT.email,CONTACT.email&&'mailto:'+CONTACT.email)}
+    ${r('Instagram',CONTACT.instagram&&'@boltonestudio',CONTACT.instagram)}
+    ${r('WhatsApp',CONTACT.whatsapp,CONTACT.whatsappLink)}
+    ${r('Behance',CONTACT.behance&&'boltonstudio',CONTACT.behance)}
+    ${r('Ubicación',CONTACT.location)}
+  </div></section>`;
+}
+
+function gallery(p){
+  if(!p.images.length) return [['full','16/9'],['','4/5'],['','4/5'],['full','16/9']].map((x,k)=>`<figure class="${x[0]}" data-rv>${media(p,k,x[1],'imagen '+String(k+1).padStart(2,'0')+' pendiente')}</figure>`).join('');
+  const it=p.images.map((im,k)=>({k,r:im[1],half:im[1]<1.2}));
+  return it.map((x,j)=>{let c='full';
+    if(x.half){const prevHalf=j>0&&it[j-1].half&&it[j-1].pair===undefined, nextHalf=j<it.length-1&&it[j+1].half;
+      if(prevHalf){c='';x.pair=1;it[j-1].pair=1;}else if(nextHalf){c='';}else c='solo';}
+    return {x,c};}).map(({x,c})=>`<figure class="${c}" data-rv>${media(p,x.k,String(x.r),'')}</figure>`).join('');
+}
+function vProyecto(p){
+  const i=P.indexOf(p), nx=P[(i+1)%P.length];
+  return `<section class="pj-hero">
+    <p class="lab mute" data-rv>Proyecto ${String(i+1).padStart(2,'0')} / ${String(P.length).padStart(2,'0')}</p>
+    <h1 class="disp" data-hero>${lines([esc(p.name)])}</h1>
+    <div class="pj-meta lab">
+      <div data-rv><span class="mute">Cliente</span><span>${p.client?esc(p.client):pend()}</span></div>
+      <div data-rv><span class="mute">Categoría</span><span>${catTxt(p)}</span></div>
+      <div data-rv><span class="mute">Año</span><span>${yearTxt(p)}</span></div>
+      <div data-rv><span class="mute">Reconocimiento</span><span>${p.award?esc(p.award):'—'}</span></div>
+    </div>
+  </section>
+  <section class="band split" style="padding-top:clamp(32px,5vw,72px)">
+    <p class="lab mute" data-rv>El proyecto</p>
+    <div>${p.desc?`<p data-rv style="max-width:64ch;margin:0">${esc(p.desc)}</p>${p.credits?`<p class="lab mute" data-rv style="margin-top:28px;max-width:62ch">${esc(p.credits)}</p>`:''}`:`<p class="big-p mute" data-rv>Descripción del proyecto</p><p data-rv style="margin-top:16px">${pend('texto del caso')}</p>`}</div>
+  </section>
+  <section class="gal">${gallery(p)}</section>
+  <div style="height:clamp(56px,8vw,120px)"></div>
+  <a class="ft-next" href="#${nx.id}" data-cursor="→" style="padding:0 var(--pad)"><span class="lab mute">Siguiente proyecto</span><br><span class="disp">${esc(nx.name)} →</span></a>`;
+}
+
+const NEXT={inicio:['trabajos','Trabajos'],trabajos:['estudio','Estudio'],estudio:['contacto','Contacto'],contacto:['inicio','Inicio']};
+function footer(route){
+  const n=NEXT[route];
+  const soc=(k,v)=>`<li>${v?`<a href="${esc(v)}">${k}</a>`:`${k} ${pend()}`}</li>`;
+  $('#ft').innerHTML=`<div class="ft-top lab"><span><b></b>Navegar</span><span>${n?'Siguiente':''}</span></div>${n?`<a class="ft-next" href="#${n[0]}" data-cursor="→"><span class="disp">${n[1]}.</span></a>`:''}
+  <div class="ft-grid lab">
+    <div><h4 class="mute">Páginas</h4><ul><li><a href="#inicio">Inicio</a></li><li><a href="#trabajos">Trabajos</a></li><li><a href="#estudio">Estudio</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+    <div><h4 class="mute">Sobre Bolton</h4><p style="margin:0">Bolton® — Independent design practice. Estudio de diseño y creatividad, Paraguay.</p></div>
+    <div><h4 class="mute">Email</h4>${CONTACT.email?`<a href="mailto:${esc(CONTACT.email)}">${esc(CONTACT.email)}</a>`:pend()}</div>
+    <div><h4 class="mute">Redes</h4><ul>${soc('Instagram',CONTACT.instagram)}${soc('WhatsApp',CONTACT.whatsappLink)}${soc('Behance',CONTACT.behance)}</ul></div>
+  </div>
+  <div class="ft-bot lab mute"><span>Thoughtfully made. Purposefully designed.</span><span>© ${new Date().getFullYear()} Bolton® · ${esc(CONTACT.location)}</span><button class="top" id="top" data-cursor-link>Volver arriba ↑</button></div>`;
+}
+
+/* ===================== scroll suave ===================== */
+let lenis=null;
+if(window.Lenis && !RM){
+  lenis=new Lenis({lerp:.085,smoothWheel:true});
+  if(ANIM){ lenis.on('scroll',()=>ST&&ST.update()); G.ticker.add(t=>lenis.raf(t*1000)); G.ticker.lagSmoothing(0); }
+  else { const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)}; requestAnimationFrame(raf); }
+}
+const scrollTo=(y,imm)=>{ if(lenis) lenis.scrollTo(y,{immediate:!!imm,duration:1.4}); else window.scrollTo({top:typeof y==='number'?y:(y.getBoundingClientRect().top+scrollY-130),behavior:imm?'auto':'smooth'}); };
+
+/* ===================== animaciones ===================== */
+function splitChars(el){
+  const t=el.textContent; el.innerHTML=[...t].map(c=>c===' '?' ':`<span class="ch">${esc(c)}</span>`).join('');
+  return $$('.ch',el);
+}
+const ACH='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*+?@!<>=';
+const rch=()=>ACH[Math.random()*ACH.length|0];
+function asciiCanvas(host,cls){
+  const cv=document.createElement('canvas'); cv.className=cls||'ascii'; host.appendChild(cv);
+  const ctx=cv.getContext('2d'), dpr=Math.min(2,devicePixelRatio||1);
+  const o={cv,ctx,cell:18};
+  o.size=()=>{const w=host.clientWidth,h=host.clientHeight;cv.width=Math.max(1,w*dpr);cv.height=Math.max(1,h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+    o.w=w;o.h=h;o.cols=Math.ceil(w/o.cell);o.rows=Math.ceil(h/o.cell);o.n=o.cols*o.rows;o.ch=Array.from({length:o.n},rch);};
+  o.size();
+  o.cellDraw=(i,fill,txt)=>{const x=(i%o.cols)*o.cell,y=(i/o.cols|0)*o.cell;ctx.fillStyle=fill;ctx.fillRect(x,y,o.cell,o.cell);
+    if(txt){ctx.fillStyle=txt;ctx.fillText(o.ch[i],x+o.cell/2,y+o.cell/2+.5);}};
+  o.font=()=>{ctx.font='500 11px "DM Mono", monospace';ctx.textAlign='center';ctx.textBaseline='middle';};
+  o.font();
+  return o;
+}
+/* revela una imagen: celdas negras con caracteres que se apagan en la dirección del scroll.
+   Antes de mostrar la foto, cada celda pasa por un cuadrado del color promedio de la imagen en ese punto.
+   Se vuelve a tapar al salir de pantalla y se repite al entrar, bajando o subiendo. */
+function asciiReveal(host){
+  if(host._ascii) return; const o=asciiCanvas(host); host._ascii=o;
+  let raf=0, cols=null;
+  const fallback=getComputedStyle(document.documentElement).getPropertyValue('--bg3').trim()||'#ececec';
+  const sample=()=>{const img=$('img',host); cols=new Array(o.n).fill(fallback);
+    if(!img||!img.complete||!img.naturalWidth) return;
+    try{const c2=document.createElement('canvas');c2.width=o.cols;c2.height=o.rows;const x=c2.getContext('2d');x.imageSmoothingQuality='high';
+      const hr=host.getBoundingClientRect(), ir=img.getBoundingClientRect(), sc=1/o.cell;
+      const dw=ir.width*sc, dh=ir.height*sc, k=Math.max(dw/img.naturalWidth,dh/img.naturalHeight), w=img.naturalWidth*k, h=img.naturalHeight*k;
+      x.drawImage(img,(ir.left-hr.left)*sc+(dw-w)/2,(ir.top-hr.top)*sc+(dh-h)/2,w,h);
+      const d=x.getImageData(0,0,o.cols,o.rows).data;
+      for(let i=0;i<o.n;i++)cols[i]=`rgb(${d[i*4]},${d[i*4+1]},${d[i*4+2]})`;}catch(e){}};
+  const cover=()=>{cancelAnimationFrame(raf);o.ctx.clearRect(0,0,o.w,o.h);for(let i=0;i<o.n;i++)o.cellDraw(i,'#000',Math.random()<.85?'#5c5c5c':null);host._shown=false;};
+  const play=dir=>{cancelAnimationFrame(raf); if(host._shown) return; host._shown=true; sample();
+    const th=new Array(o.n); for(let i=0;i<o.n;i++){const r=(i/o.cols|0)/Math.max(1,o.rows-1);th[i]=(dir>0?r:1-r)*.7+Math.random()*.3;}
+    const dur=1150,t0=performance.now();
+    const step=now=>{const p=(now-t0)/dur;o.ctx.clearRect(0,0,o.w,o.h);let left=0;
+      for(let i=0;i<o.n;i++){const d=p-th[i];
+        if(d<0){left++;if(Math.random()<.05)o.ch[i]=rch();o.cellDraw(i,'#000','#5c5c5c');}
+        else if(d<.1){left++;o.cellDraw(i,cols[i],null);}}
+      if(left)raf=requestAnimationFrame(step);};
+    raf=requestAnimationFrame(step);};
+  cover();
+  const img=$('img',host); if(img&&!img.complete) img.addEventListener('load',()=>{},{once:true});
+  if(ST){ST.create({trigger:host,start:'top 92%',end:'bottom 8%',
+      onEnter:()=>play(1),onEnterBack:()=>play(-1),onLeave:cover,onLeaveBack:cover,
+      onRefresh:()=>{o.size();if(!host._shown)cover();else o.ctx.clearRect(0,0,o.w,o.h);}});}
+  else{const io=new IntersectionObserver(es=>{es[0].isIntersecting?play(1):cover();},{threshold:.1});io.observe(host);}
+}
+/* texto que se mezcla y se resuelve letra por letra */
+/* guarda el texto original la primera vez, antes de cualquier mezcla */
+const orig=el=>{if(el._orig===undefined)el._orig=el.textContent;return el._orig;};
+function shuffle(el,to,dur=520){
+  if(!el) return; orig(el); if(to===undefined) to=el._orig;
+  clearInterval(el._sh); clearTimeout(el._st); const L=to.length; const t0=performance.now();
+  const end=()=>{clearInterval(el._sh);clearTimeout(el._st);el.textContent=to;};
+  el._sh=setInterval(()=>{const p=Math.min(1,(performance.now()-t0)/dur), k=Math.floor(p*L);
+    el.textContent=to.slice(0,k)+[...to.slice(k)].map(c=>c===' '?' ':rch()).join('');
+    if(p>=1)end();},32);
+  el._st=setTimeout(end,dur+150); /* garantía: siempre termina en el texto correcto */
+}
+function animatePage(root){
+  if(!ANIM||!ST) return;
+  ST.getAll().forEach(t=>t.kill());
+  $$('[data-hero] [data-split]',root).forEach((el,i)=>{
+    const ch=splitChars(el);
+    G.fromTo(ch,{yPercent:110},{yPercent:0,duration:1.1,ease:'expo.out',stagger:.025,delay:.15+i*.12});
+  });
+  $$('[data-mask]',root).forEach(asciiReveal);
+  $$('.slide',root).forEach(sl=>ST.create({trigger:sl,start:'top 50px',end:'bottom 50px',toggleClass:{targets:document.body,className:'hd-light'}}));
+  /* frase grande: el espacio entre las palabras de cada renglón se cierra y se abre con el scroll */
+  $$('.stmt-t .sl',root).forEach(ln=>{const w=ln.firstElementChild, stretch=ln.dataset.mode==='stretch';
+    ST.create({trigger:ln,start:stretch?'top bottom':'top 85%',end:stretch?'top 28%':'top 40%',scrub:.4,
+      onUpdate:self=>{const p=self.progress;w.style.flexGrow=(stretch?Math.abs(1-2*p):1-p).toFixed(4);}});});
+  $$('.slide-t',root).forEach(t=>{ST.create({trigger:t.parentElement,start:'top 60%',once:true,onEnter:()=>shuffle(t,orig(t),700)});});
+  $$('.meta>span, .fbar .stx, .fbar #ftgT, .vw button',root).forEach(el=>{const t=el.firstChild&&el.firstChild.nodeType===3?el.firstChild:null;if(!t)return;
+    const full=t.textContent;
+    if(!el.childElementCount){orig(el);ST.create({trigger:el,start:'top 95%',once:true,onEnter:()=>shuffle(el,undefined,700)});return;}
+    ST.create({trigger:el,start:'top 95%',once:true,onEnter:()=>{const sp=document.createElement('span');sp.textContent=full;sp._orig=full;t.replaceWith(sp);shuffle(sp,full,700);}});});
+  $$('[data-par]',root).forEach(el=>G.fromTo(el,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:el.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
+  $$('[data-rv], .card h3',root).forEach(el=>G.from(el,{y:50,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));
+  $$('.ft-next .disp, .ft-grid>div').forEach(el=>G.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 95%',once:true}}));
+  requestAnimationFrame(()=>ST.refresh());
+}
+
+/* ===================== trabajos: filtros + vista ===================== */
+function bindTrabajos(){
+  const grid=$('#grid'), list=$('#list'), works=$('#lista'), panel=$('#fpanel'), tg=$('#ftg');
+  if(!grid) return;
+  let open=false, busy=false, view='grid';
+  const relayout=()=>{let k=0;$$('.card',grid).forEach(c=>{if(c.style.display==='none')return;c.className='card l'+(k%6);$('.media',c).style.setProperty('--r',RATIOS[k%6]);k++;});};
+  tg.onclick=()=>{
+    open=!open; tg.setAttribute('aria-expanded',open); $('#ftgT').textContent=open?'Cerrar':'Categorías'; $('#ftgI').textContent=open?'×':'↕';
+    const ws=$$('.fl .w>button');
+    if(ANIM){ if(open){G.set(panel,{height:'auto'});G.from(panel,{height:0,duration:.6,ease:'power3.inOut'});G.fromTo(ws,{yPercent:110},{yPercent:0,duration:.8,ease:'expo.out',stagger:.04,delay:.1});}
+      else G.to(panel,{height:0,duration:.55,ease:'power3.inOut',onComplete:()=>ST&&ST.refresh()}); }
+    else panel.style.height=open?'auto':'0';
+  };
+  $$('#fl button').forEach(b=>b.onclick=()=>{
+    if(busy||b.classList.contains('on')) return;
+    $$('#fl button').forEach(x=>x.classList.toggle('on',x===b));
+    const f=b.dataset.f, match=id=>{const p=P.find(x=>x.id===id);return f==='*'||p.cats.includes(f)};
+    const items=[...$$('.card',grid),...$$('.row',list)];
+    const apply=()=>{items.forEach(el=>el.style.display=match(el.dataset.id)?'':'none');relayout();
+      const n=items.filter(el=>el.style.display!=='none').length; $('#empty').classList.toggle('on',n===0);};
+    if(!ANIM){apply();return;}
+    busy=true;
+    const vis=items.filter(el=>el.style.display!=='none'&&el.offsetParent);
+    G.to(vis,{opacity:0,y:30,duration:.35,stagger:.03,ease:'power2.in',onComplete:()=>{
+      apply(); const now=items.filter(el=>el.style.display!=='none'&&el.offsetParent);
+      G.fromTo(now,{opacity:0,y:40},{opacity:1,y:0,duration:.8,stagger:.06,ease:'power3.out',onComplete:()=>{busy=false;ST&&ST.refresh();}});
+      if(!now.length){busy=false;G.fromTo('#empty',{opacity:0,y:20},{opacity:1,y:0,duration:.6});}
+    }});
+    if(vis.length===0) {apply();busy=false;}
+  });
+  $$('.vw button').forEach(b=>b.onclick=()=>{
+    if(b.dataset.v===view) return; view=b.dataset.v;
+    $$('.vw button').forEach(x=>x.classList.toggle('on',x===b));
+    const swap=()=>{works.classList.toggle('is-list',view==='list');
+      const t=view==='list'?$$('.row',list).filter(r=>r.style.display!=='none'):$$('.card',grid).filter(r=>r.style.display!=='none');
+      if(ANIM){G.fromTo(t,{opacity:0,y:30},{opacity:1,y:0,duration:.7,stagger:.05,ease:'power3.out'});}
+      ST&&ST.refresh();};
+    if(ANIM) G.to(works,{opacity:0,duration:.3,onComplete:()=>{swap();G.to(works,{opacity:1,duration:.3});}}); else swap();
+  });
+  // vista previa flotante en la lista
+  const lp=$('#lp');
+  $$('.row',list).forEach(r=>{
+    r.addEventListener('mouseenter',()=>{const p=P.find(x=>x.id===r.dataset.id);lp.innerHTML=ph(p,0);lp.classList.add('on');});
+    r.addEventListener('mouseleave',()=>lp.classList.remove('on'));
+  });
+}
+
+/* ===================== router + transiciones ===================== */
+const ROUTES={inicio:vInicio,trabajos:vTrabajos,estudio:vEstudio,contacto:vContacto};
+const TITLES={inicio:'Inicio',trabajos:'Trabajos',estudio:'Estudio',contacto:'Contacto'};
+let current=null, moving=false, booting=ANIM;
+function resolve(){
+  const h=decodeURIComponent(location.hash.slice(1))||'inicio';
+  if(ROUTES[h]) return {key:h,html:ROUTES[h](),foot:h,title:TITLES[h]};
+  const p=P.find(x=>x.id===h); if(p) return {key:h,html:vProyecto(p),foot:null,title:p.name};
+  const el=document.getElementById(h); if(el&&current) return {anchor:el};
+  return {key:'inicio',html:vInicio(),foot:'inicio',title:'Inicio'};
+}
+function render(r){
+  const v=$('#view'); v.innerHTML=r.html; footer(r.foot); current=r.key;
+  document.title=`${r.title} — Bolton`;
+  $$('.nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===r.key||(!ROUTES[r.key]&&a.dataset.r==='trabajos')));
+  if(lenis) lenis.scrollTo(0,{immediate:true,force:true}); else window.scrollTo(0,0);
+  bindTrabajos(); if(!booting) animatePage(v); $('#lp').classList.remove('on');
+  $('#top').onclick=()=>scrollTo(0);
+}
+function go(first){
+  const r=resolve();
+  if(r.anchor){scrollTo(r.anchor);return;}
+  if(r.key===current) return;
+  if(first||!ANIM){render(r);return;}
+  if(moving) return; moving=true;
+  closeMenu();
+  G.timeline({onComplete:()=>{moving=false}})
+    .to(['#view','#ft'],{opacity:0,duration:.35,ease:'power2.in'})
+    .add(()=>render(r))
+    .to(['#view','#ft'],{opacity:1,duration:.5,ease:'power2.out'},'+=.05');
+}
+addEventListener('hashchange',()=>go(false));
+/* control de los ojos del símbolo: mirar, parpadear, abrir y cerrar */
+function eyeCtl(svg){
+  const eyes=[...svg.querySelectorAll('.beye')], pups=[...svg.querySelectorAll('.bpup')];
+  const setT=(el,v)=>el.setAttribute('transform',v);
+  const io=p=>p<.5?2*p*p:1-(-2*p+2)**2/2, oc=p=>1-(1-p)**3, ic=p=>p*p*p;
+  let cur={x:0,y:0}, lid=1;
+  const setLid=v=>{lid=v;eyes.forEach(g=>{const cy=+g.dataset.cy;if(v>=.999)g.removeAttribute('transform');else setT(g,`translate(0 ${cy}) scale(1 ${Math.max(.02,v).toFixed(3)}) translate(0 ${-cy})`);});};
+  const tween=(d,fn)=>new Promise(res=>{const t0=performance.now();const f=now=>{const p=Math.min(1,(now-t0)/d);fn(p);if(p<1)requestAnimationFrame(f);else res();};requestAnimationFrame(f);});
+  const look=(x,y,d=420)=>{const fr={...cur};return tween(d,p=>{const e=io(p);cur={x:fr.x+(x-fr.x)*e,y:fr.y+(y-fr.y)*e};pups.forEach(g=>setT(g,`translate(${cur.x.toFixed(1)} ${cur.y.toFixed(1)})`));});};
+  const lidTo=(v,d,ease=oc)=>{const fr=lid;return tween(d,p=>setLid(fr+(v-fr)*ease(p)));};
+  const blink=async(d=240)=>{await lidTo(.03,d*.42,ic);await lidTo(1,d*.58,oc);};
+  return {look,blink,lidTo,setLid};
+}
+/* símbolo vivo del header: los ojos miran en distintas direcciones y parpadean */
+{const hm=$('.hd .bmark'); if(hm&&!RM){const E=eyeCtl(hm);
+ const DIRS=[[0,0],[-34,4],[34,4],[-26,-14],[26,-14],[0,16],[-30,14],[30,14]];
+ const loop=async()=>{if(Math.random()<.38)await E.blink(); else {const d=DIRS[Math.random()*DIRS.length|0];await E.look(d[0],d[1]);if(Math.random()<.3){await new Promise(r=>setTimeout(r,260));await E.blink();}}
+   setTimeout(loop,1300+Math.random()*2200);};
+ setTimeout(loop,6500);}}
+/* reloj del estudio: hora de Asunción, 24 h */
+{const ck=$('#clock');let fmt;try{fmt=new Intl.DateTimeFormat('es-PY',{timeZone:'America/Asuncion',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});}catch(e){fmt=null;}
+ const tick=()=>{const d=new Date();ck.textContent='Asunción '+(fmt?fmt.format(d):d.toTimeString().slice(0,8));};tick();setInterval(tick,1000);}
+/* botón de modo: claro → oscuro → flúor */
+const MODES=[['light','Claro'],['dark','Oscuro'],['fluor','Flúor']];
+const setMode=k=>{const m=MODES.find(x=>x[0]===k)||MODES[0];
+  if(m[0]==='light')delete document.documentElement.dataset.mode; else document.documentElement.dataset.mode=m[0];
+  $('#modeTxt').textContent=m[1]; try{localStorage.setItem('bolton-mode',m[0]);}catch(e){}};
+setMode(document.documentElement.dataset.mode||'light');
+$('#mode').onclick=()=>{const cur=document.documentElement.dataset.mode||'light';const i=MODES.findIndex(x=>x[0]===cur);setMode(MODES[(i+1)%MODES.length][0]);shuffle($('#modeTxt'),$('#modeTxt').textContent,350);};
+document.addEventListener('click',e=>{
+  const s=e.target.closest('[data-scroll]'); if(s){e.preventDefault();const t=document.getElementById(s.getAttribute('href').slice(1));if(t)scrollTo(t);return;}
+  const a=e.target.closest('a[href^="#"]'); if(!a) return;
+  const h=a.getAttribute('href').slice(1);
+  if(h===current){e.preventDefault();closeMenu();scrollTo(0);}
+});
+
+/* ===================== menú ===================== */
+const ov=$('#ov'), mb=$('#mbtn'); let mOpen=false;
+function openMenu(){
+  mOpen=true; document.body.classList.add('menu-open'); mb.setAttribute('aria-expanded','true'); $('#mtxt').textContent='Cerrar';
+  if(lenis) lenis.stop();
+  if(ANIM){G.timeline().fromTo(ov,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:.8,ease:'power4.inOut'})
+    .fromTo($$('.line>span',ov),{yPercent:110},{yPercent:0,duration:.9,ease:'expo.out',stagger:.07},'-=.35')
+    .fromTo('.ovf',{opacity:0},{opacity:1,duration:.5},'-=.6');}
+  else ov.style.clipPath='inset(0 0 0 0)';
+}
+function closeMenu(fast){
+  if(!mOpen) return; mOpen=false; mb.setAttribute('aria-expanded','false'); $('#mtxt').textContent='Menú';
+  if(lenis) lenis.start();
+  const done=()=>document.body.classList.remove('menu-open');
+  if(ANIM&&!fast) G.timeline({onComplete:done}).to($$('.line>span',ov),{yPercent:-110,duration:.5,ease:'power3.in',stagger:.04}).to(ov,{clipPath:'inset(0 0 100% 0)',duration:.7,ease:'power4.inOut'},'-=.2');
+  else { if(ANIM) G.delayedCall(.75,()=>{G.set(ov,{clipPath:'inset(0 0 100% 0)'});done();}); else {ov.style.clipPath='';done();} }
+}
+mb.onclick=()=>mOpen?closeMenu():openMenu();
+addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+
+/* ===================== cursor ===================== */
+const cur=$('#cur'), cTxt=$('#curTxt'), lp=$('#lp');
+if(matchMedia('(hover:hover)').matches){
+  let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,lx=mx,ly=my;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;if(!document.getElementById('pre'))cur.classList.add('on');});
+  const tick=()=>{cx+=(mx-cx)*.22;cy+=(my-cy)*.22;lx+=(mx-lx)*.12;ly+=(my-ly)*.12;
+    cur.style.transform=`translate(${cx}px,${cy}px)`; lp.style.left=lx+'px'; lp.style.top=ly+'px'; requestAnimationFrame(tick);};
+  tick();
+  document.addEventListener('pointerover',e=>{
+    const cd=e.target.closest('.card'); if(cd&&!cd._h){cd._h=1;const sp=$('.meta>span',cd);if(sp){orig(sp);shuffle(sp,'Descubrir');cd.addEventListener('pointerleave',()=>{cd._h=0;shuffle(sp);},{once:true});}}
+    const nv=e.target.closest('.nav a'); if(nv&&!nv._h){nv._h=1;shuffle(nv,undefined,380);nv.addEventListener('pointerleave',()=>nv._h=0,{once:true});}
+    const big=e.target.closest('[data-cursor]'), lk=e.target.closest('a,button,[data-cursor-link]');
+    cur.classList.toggle('big',!!big); cTxt.textContent=big?big.dataset.cursor:'';
+    cur.classList.toggle('link',!big&&!!lk);
+  });
+} else document.body.classList.remove('has-cur');
+
+/* ===================== preloader + arranque ===================== */
+go(true);
+if(ANIM){
+  const pre=$('#pre'), o=asciiCanvas(pre); o.cv.remove(); o.cv=$('#preCv'); o.ctx=o.cv.getContext('2d'); o.size=(()=>{const f=o.size;return ()=>{const w=innerWidth,h=innerHeight,d=Math.min(2,devicePixelRatio||1);o.cv.width=w*d;o.cv.height=h*d;o.ctx.setTransform(d,0,0,d,0,0);o.w=w;o.h=h;o.cols=Math.ceil(w/o.cell);o.rows=Math.ceil(h/o.cell);o.n=o.cols*o.rows;o.ch=Array.from({length:o.n},rch);o.font();}})(); o.size();
+  /* racimos de caracteres grises que parpadean sobre negro */
+  let on=new Set(), alive=true;
+  const seed=()=>{const c=Math.random()*o.cols|0,r=Math.random()*o.rows|0,n=2+Math.random()*7|0;for(let k=0;k<n;k++){const cc=c+(Math.random()*3|0)-1+(k%3),rr=r+(k/3|0)+(Math.random()<.3?1:0);if(cc>=0&&cc<o.cols&&rr>=0&&rr<o.rows)on.add(rr*o.cols+cc);}};
+  const cssv=k=>getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+  const flick=()=>{if(!alive)return;o.ctx.fillStyle=cssv('--bg')||'#f7f7f7';o.ctx.fillRect(0,0,o.w,o.h);
+    if(Math.random()<.6)seed(); on.forEach(i=>{if(Math.random()<.12)on.delete(i);else{if(Math.random()<.3)o.ch[i]=rch();o.ctx.fillStyle=cssv('--mute')||'#b8b8b8';o.ctx.fillText(o.ch[i],(i%o.cols)*o.cell+o.cell/2,(i/o.cols|0)*o.cell+o.cell/2+.5);}});
+    setTimeout(()=>requestAnimationFrame(flick),70);};
+  pre.style.background='transparent'; flick();
+  /* intro: el símbolo de Bolton abre los ojos, mira a los costados y parpadea; luego la página se desliza */
+  const pm=$('#pmark'); pm.innerHTML=$('.hd .bmark').outerHTML.replace(/id="(b\w+)"/g,'id="p$1"').replace(/url\(#(b\w+)\)/g,'url(#p$1)');
+  const mk=$('.bmark',pm), E=eyeCtl(mk), wait=ms=>new Promise(r=>setTimeout(r,ms));
+  E.setLid(.03);
+  const hl=$('.hd .bmark'); hl.style.opacity='0';
+  const c={v:0}, TOTAL=4.4;
+  G.to(c,{v:100,duration:TOTAL,ease:'power1.inOut',onUpdate:()=>$('#cnt').textContent=String(Math.round(c.v)).padStart(3,'0')});
+  if(lenis) lenis.stop();
+  (async()=>{
+    G.fromTo(mk,{opacity:0,scale:.86,y:14},{opacity:1,scale:1,y:0,duration:.8,ease:'power3.out'});
+    await wait(420);
+    await E.lidTo(1,420);                 /* abre los ojos */
+    await wait(260);
+    await E.look(-34,4,430); await wait(330);   /* mira a la izquierda */
+    await E.look(34,4,560);  await wait(260);   /* cruza a la derecha */
+    await E.blink(230);
+    await E.look(-22,-14,360); await wait(180); /* mira arriba */
+    await E.look(0,0,380);   await wait(120);   /* vuelve al centro */
+    await E.blink(190); await wait(90); await E.blink(190);  /* doble parpadeo */
+    await wait(220);
+    alive=false; G.to('#cnt',{opacity:0,duration:.25});
+    o.ctx.fillStyle=cssv('--bg')||'#f7f7f7';o.ctx.fillRect(0,0,o.w,o.h);
+    /* el símbolo sale del telón y viaja a su lugar en el header, donde se queda */
+    const from=mk.getBoundingClientRect(), to=hl.getBoundingClientRect();
+    const fl=document.createElement('div'); fl.className='flyer';
+    Object.assign(fl.style,{left:from.left+'px',top:from.top+'px',width:from.width+'px',height:from.height+'px'});
+    G.set(mk,{clearProps:'transform'}); mk.style.opacity='1'; fl.appendChild(mk); document.body.appendChild(fl);
+    if(lenis) lenis.start();
+    booting=false; animatePage($('#view'));
+    G.to(pre,{yPercent:-100,duration:1.1,ease:'power4.inOut',onComplete:()=>pre.remove()});
+    G.to(fl,{left:to.left,top:to.top,width:to.width,height:to.height,duration:1.1,ease:'power4.inOut',
+      onComplete:()=>{hl.style.opacity='';fl.remove();}});
+  })();
+} else { const pr=$('#pre'); if(pr) pr.remove(); }
+}
+</script>
+</body>
+</html>
