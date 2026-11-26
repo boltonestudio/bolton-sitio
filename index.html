@@ -403,7 +403,7 @@ function vInicio(){
   const feat=FEATURED.map(id=>P.find(p=>p.id===id)).filter(Boolean);
   return `<section class="hero home">
     <h1 class="disp" data-hero>${lines(['Estudio de diseño','y creatividad'])}</h1>
-    <div class="sub lab"><p data-rv>Pensamiento, cultura visual y diseño al servicio de las marcas.<br><br>Independent design practice<br>Paraguay</p>
+    <div class="sub lab"><p data-rv>Estudio independiente de diseño, identidad visual y branding.<br><br>Asunción, Paraguay</p>
     <a class="stx" href="#destacados" data-scroll>Scroll para explorar <svg width="12" height="14" viewBox="0 0 12 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 0v12M1 7l5 5 5-5"/></svg></a></div>
   </section>
   <section class="feat" id="destacados">${feat.map((p,i)=>`<a class="slide" href="#${p.id}" data-cursor="↗">
